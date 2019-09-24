@@ -11,13 +11,13 @@
 
               <div class="row">
                 <div class="col s12 m6">
-                  <div class="card white darken-1 text-left">
-                    <div class="card-content black-text">
-                      <span class="card-title text-muted text-uppercase font-weight-bolder">Winter 2020</span>
+                  <div class="card-transparent white darken-1 text-left">
+                    <div class="card-content">
+                      <span class="card-title text-white text-uppercase display-1 font-weight-bolder">Winter 2020</span>
                       <p class="font-weight-bold">The winter collection 2020 is now in stock.</p>
                     </div>
                   <div class="card-action">
-                    <a href="#" class="btn btn-outline text-dark">Shop Now!</a>
+                    <a href="#" class="btn btn-btn">Shop Now!</a>
                   </div>
                 </div>
               </div>
@@ -120,17 +120,20 @@ export default {
           .container {
             position: relative;
             z-index: 2;
-            margin-top: 10rem;
-              .card {
+            margin-top: 5rem;
+              .card-transparent {
                 font-family: 'Raleway', sans-serif;
-                max-width: 400px;
-                .btn-outline:hover,
-                .btn-outline:focus,
-                .btn-outline:active,
-                .btn-outline.active,
+                max-width: 600px;
+                .btn-btn {
+                  background-color: #7295AD;
+                  color: white;
+                }
+                .btn-btn:hover,
+                .btn-btn:focus,
+                .btn-btn:active,
+                .btn-btn.active,
                 .open>.dropdown-toggle.btn-primary {
-                  color: #fff;
-                  background-color: lightblue;
+                  filter: brightness(120%);
                   border-color: #78B9C4;
                 }
               }
