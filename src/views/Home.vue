@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <Jumbotron />
-    <h1>Home</h1>
   </div>
 </template>
 
