@@ -46,8 +46,19 @@
  
  </script>
  <style>
- .logo {
-   width: 32px;
-   height: 32px;
- }
+    .logo {
+    width: 70px;
+    height: 30px;
+    }
+
+    .border-end {
+        border: 1px solid black;
+        border-width: 0 1px 0 0;
+        line-height: 2px;
+    }
+
+    .custom-line-height {
+        line-height: 2px;
+    }
+
  </style>
