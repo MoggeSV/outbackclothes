@@ -1,64 +1,119 @@
 <template>
-   <nav class="navbar navbar-expand-lg navbar-light bg-white">
-       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-       </button>
-       <div class="collapse navbar-collapse" id="navbarNav">
-          <div class="col d-flex justify-content-center">
-                <ul class="navbar-nav">
-                      <li class="nav-item">
-                         <a class="nav-link border-end" href="#">MAN</a>
-                      </li>
-                      <li class="nav-item">
-                         <a class="nav-link border-end" href="#">KVINNA</a>
-                      </li>
-                      <li class="nav-item">
-                         <a class="nav-link custom-line-height " href="#">BARN</a>
-                      </li>
-                   </ul>
-          </div>
-          <div class="col d-flex justify-content-center">
-                <a class="navbar-brand mx-auto" href="#">
-                 <img src="@/assets/images/oclogo.png" class="logo" />
-                  <span>OutbackClothes</span>
-                </a>
-          </div>
-          <div class="col d-flex justify-content-center">
-                <ul class="navbar-nav">
-                   <li class="nav-item">
-                      <a class="nav-link" href="#"><i class="far fa-user-circle"></i></a>
-                   </li>
-                   <li class="nav-item">
-                         <a class="nav-link" href="#"><i class="fas fa-shopping-bag"></i></a>
-                      </li>
-                </ul>
-          </div>
-       </div>
-       </nav>
- </template>
+  <div>
+    <!-- För stora skärmar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white d-none d-lg-block">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="col d-flex justify-content-center">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <router-link to="/men" class="nav-link border-end">MAN</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/women" class="nav-link border-end">KVINNA</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/children" class="nav-link custom-line-height">BARN</router-link>
+            </li>
+          </ul>
+        </div>
+        <div class="col d-flex justify-content-center">
+          <router-link to="/" class="navbar-brand mx-auto">
+            <img src="@/assets/images/oclogo.png" class="logo" />
+            <span>OutbackClothes</span>
+          </router-link>
+        </div>
+        <div class="col d-flex justify-content-center">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="far fa-user-circle"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-shopping-bag"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Minde än LG -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white d-lg-none">
+        <router-link to="/" class="navbar-brand mx-auto">
+            <img src="@/assets/images/oclogo.png" class="logo" />
+            <span>OutbackClothes</span>
+        </router-link>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link to="/men" class="nav-link">
+              Man
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/woman" class="nav-link">Kvinna</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/children" class="nav-link">Barn</router-link>
+          </li>
+        <li class="nav-item">
+            <router-link to="/profile" class="nav-link"><i class="far fa-user-circle"></i> Profil</router-link>
+          </li>
+        <li class="nav-item">
+            <router-link to="/checkout" class="nav-link"><i class="fas fa-shopping-bag"></i>  Varukorg </router-link>
+        </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</template>
  
  <script>
- 
- 
- export default {
- name: "NavBar",
- }
- 
- </script>
+export default {
+  name: "NavBar"
+};
+</script>
  <style>
-    .logo {
-    width: 70px;
-    height: 30px;
-    }
+.logo {
+  width: 70px;
+  height: 30px;
+}
 
-    .border-end {
-        border: 1px solid black;
-        border-width: 0 1px 0 0;
-        line-height: 2px;
-    }
+.border-end {
+  border: 1px solid black;
+  border-width: 0 1px 0 0;
+  line-height: 2px;
+}
 
-    .custom-line-height {
-        line-height: 2px;
-    }
+.custom-line-height {
+  line-height: 2px;
+}
 
- </style>
+span {
+    font-weight: 100;
+}
+</style>
