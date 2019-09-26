@@ -1,11 +1,12 @@
 <template>
-    <div class="contaier">
-        <h1>hej</h1>
+    <div>
+        <div class="contaier">
+            
+        </div>
     </div>
 </template>
 
 <script>
-
 export default {
   name: "Footer",
   data () {
