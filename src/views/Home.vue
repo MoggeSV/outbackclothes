@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <Jumbotron />
-    <Cards />
+    
+  
   </div>
 </template>
 
