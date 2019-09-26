@@ -4,9 +4,8 @@
           <li class="collection-header"><h4>Children</h4></li>
           <li v-for="product in products" v-bind:key="product.id" class="collection-item">
 
-                  {{product.name}}{{product.brand}}{{product.price }} <img v-bind:src=product.img_url>
-                  <!-- <img src="../assets/images/children/children_4.jpg" alt=""> -->
-                  <img src="../assets/images/children/children_4.jpg">
+                  {{product.name}}{{product.brand}}{{product.price }} <img :src="require(`@/assets/images/children/${product.img_url}`)"/>
+
 
               
             </li>
