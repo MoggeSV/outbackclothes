@@ -120,7 +120,7 @@ export default {
    position: absolute;
    z-index: 1000;
    right: 80px;
-   top: 40px;
+   top: 50px;
  }
 
 .logo {
