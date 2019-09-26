@@ -15,6 +15,7 @@
                       <li class="nav-item">
                          <a class="nav-link custom-line-height " href="#">BARN</a>
                       </li>
+                      <p>hej</p>
                    </ul>
           </div>
           <div class="col d-flex justify-content-center">
