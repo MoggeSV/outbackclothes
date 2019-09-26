@@ -18,44 +18,44 @@
                             <div class="col-9">Northface</div>
                         </span>
                         <span class="row">
-                            <div class="col-7"><span class="product-text">Vinterjacka</span></div>
-                            <div class="col-3 price">970:-</div>
+                            <div class="col-6"><span class="product-text">Vinterjacka</span></div>
+                            <div class="col-4 price">3790 kr</div>
                             <div class="col-2"><i class="fas fa-minus remove-icon text-muted"></i></div>
                         </span>
                     </li>
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-2">1</div>
-                            <div class="col-9">Northface</div>
+                            <div class="col-9">Fjällräven</div>
                         </div>
                         <div class="row">
-                            <div class="col-7"><span class="product-text">Vinterjacka</span></div>
-                            <div class="col-3 price">2700:-</div>
+                            <div class="col-6"><span class="product-text">Ryggsäck</span></div>
+                            <div class="col-4 price">890 kr</div>
                             <div class="col-2"><i class="fas fa-minus remove-icon text-muted"></i></div>
                         </div>
                     </li>
                 </ul>
             </div>
-            <!-- End of product list -->
-            <!-- Small cart footer -->
-            <div id="small-cart-footer">
-                <div id="small-cart-total" class="row">
-                    <div class="col d-flex justify-content-start mt-3">
-                        <span>Total: </span>
-                    </div>
-                    <div class="col mt-3 d-flex justify-content-end">
-                        <span style="font-weight: bold">3784:-</span>
-                    </div>
-                </div>
-                <div id="small-cart-checkout" class="row mt-2">
-                    <div class="col d-flex justify-content-end">
-                        <router-link to="/checkout" class="btn checkout-btn">
-                            <i class="far fa-credit-card"></i> Gå vidare
-                        </router-link>
-                    </div>
-                </div>
-            </div>  <!-- End of Footer -->
         </div>  <!-- End of Content -->
+        <!-- End of product list -->
+        <!-- Small cart footer -->
+        <div id="small-cart-footer">
+            <div id="small-cart-total" class="row">
+                <div class="col d-flex justify-content-start mt-3">
+                    <span>Totalsumma: <span class="text-muted-dark">(Inkl. moms)</span></span>
+                </div>
+                <div class="col mt-3 d-flex justify-content-end">
+                    <span style="font-weight: bold; background:">3784 kr</span>
+                </div>
+            </div>
+            <div id="small-cart-checkout" class="row mt-2">
+                <div class="col d-flex justify-content-end">
+                    <router-link to="/checkout" class="btn checkout-btn">
+                        <i class="far fa-credit-card"></i> Gå vidare
+                    </router-link>
+                </div>
+            </div>
+        </div>  <!-- End of Footer -->
     </div> <!-- End of Cart -->
 </template>
 
@@ -74,7 +74,6 @@ export default {
     width: 250px;
     min-height: 300px;
     min-width: 300px;
-    padding: 10px;
     background: white;
 }
 
@@ -83,8 +82,10 @@ export default {
     justify-content: center;
     font-weight: 300 !important;
     color:rgb(84, 84, 84);
+    padding: 13px;
     
 }
+
 .product-text {
     color: rgb(65, 65, 65);
     text-transform: uppercase;
@@ -105,8 +106,29 @@ export default {
     color: white;
 }
 
+.checkout-btn:hover {
+    background: rgb(102, 167, 159);
+    color: white;
+}
+
+.checkout-btn:active {
+    background: rgb(88, 144, 138);
+    color: white;
+}
+
 #small-cart-footer {
-    background: tomato;
+    background: #7295AD;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#small-cart-total span {
+    color: white;
+}
+
+.text-muted-dark {
+    color: rgb(207, 207, 207);
+    font-size: 0.8em;
 }
 
 /* Används inte ATM */ 
