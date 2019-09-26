@@ -36,14 +36,14 @@
         <div class="col d-flex justify-content-center">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <router-link to="/" class="nav-link">
                 <i class="far fa-user-circle"></i>
-              </a>
+              </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <router-link to="checkout" class="nav-link">
                 <i class="fas fa-shopping-bag"></i>
-              </a>
+              </router-link>
             </li>
           </ul>
         </div>
