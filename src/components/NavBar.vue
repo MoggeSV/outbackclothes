@@ -49,7 +49,10 @@
           </ul>
         </div>
       </div>
-      <SmallCart v-if="showingCart === true" class="small-cart"/>
+      <transition name="fade">
+        <SmallCart v-if="showingCart === true" class="small-cart"/>
+      </transition>
+      
     </nav>
     <!-- Minde än LG -->
 
@@ -139,6 +142,14 @@ export default {
 }
 
 span {
-    font-weight: 100;
+  font-weight: 100;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
