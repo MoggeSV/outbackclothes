@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Jumbotron from './components/Jumbotron'
+import Boxes from './components/Boxes'
 
 Vue.use(Router);
 
