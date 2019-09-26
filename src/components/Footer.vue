@@ -1,35 +1,37 @@
 <template>
   <div>
     <!-- Footer -->
-    <div class="page-footer font-small bg-secondary">
-      <div class="container text-center text-md-left">
+    <div class="page-footer bg-secondary">
+      <div class="container">
         <div class="row">
-          <div class="col-md-3 mx-auto">
+
+          <!-- Grid Column -->
+          <div class="col text-center">
             <h5 class="font-weight-bold text-uppercase mt-3 mb-4">ABOUT OC</h5>
             <div class="aboutOC">
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, deleniti doloremque aliquid dignissimos aperiam debitis. Ipsam, nam eos. Ab veritatis autem, obcaecati corporis corrupti mollitia nam ipsam possimus accusamus sapiente?</p>
+              <p>Lorem, ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit aliquam maxime sed perspiciatis quaerat dicta perferendis quidem tempore dolore quod? consectetur adipisicing elit. At, deleniti doloremque aliquid dignissimos aperiam debitis. Ipsam, nam eos. Ab veritatis autem, obcaecati corporis corrupti mollitia nam ipsam possimus accusamus sapiente?</p>
             </div>
           </div>
+          <!-- Grid Column -->
 
           <hr class="clearfix w-100 d-md-none" />
 
           <!-- Grid column -->
-          <div class="col-md-3 mx-auto">
-            <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
+          <div class="col text-center">
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Betalsätt</h5>
             <ul class="list-unstyled">
               <li>
-                <a href="#!">Link 1</a>
+                <a href="#!"><i class="fab payCards fa-cc-mastercard"></i></a>
               </li>
               <li>
-                <a href="#!">Link 2</a>
+                <a href="#!"><i class="fab payCards fa-cc-visa"></i></a>
               </li>
               <li>
-                <a href="#!">Link 3</a>
+                <a href="#!"><i class="fab payCards fa-cc-amex"></i></a>
               </li>
+              <h5 class="fontweight-bold text-uppercase mt-3 mb-4">Vi skickar med</h5>
               <li>
-                <a href="#!">Link 4</a>
+                <img src="https://www.postnord.com/UI/gfx/logo-white.svg" alt="postnord" class="postNordIMG">
               </li>
             </ul>
           </div>
@@ -38,22 +40,20 @@
           <hr class="clearfix w-100 d-md-none" />
 
           <!-- Grid column -->
-          <div class="col-md-3 mx-auto">
-            <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
+          <div class="col text-center">
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Socials</h5>
             <ul class="list-unstyled">
               <li>
-                <a href="#!">Link 1</a>
+                <a href="#!"><i class="fab socialCards fa-twitter-square"></i></a>
               </li>
               <li>
-                <a href="#!">Link 2</a>
+                <a href="#!"><i class="fab socialCards fa-facebook-square"></i></a>
               </li>
               <li>
-                <a href="#!">Link 3</a>
+                <a href="#!"><i class="fab socialCards fa-google-plus-square"></i></a>
               </li>
               <li>
-                <a href="#!">Link 4</a>
+                <a href="#!"><i class="fab socialCards fa-instagram"></i></a>
               </li>
             </ul>
           </div>
@@ -61,22 +61,12 @@
         </div>
         <!-- Grid row -->
       </div>
-      <!-- Footer Links -->
-
-      <!-- Copyright -->
-      <div class="bg-dark">
-        <div class="container py-3">
-          <div class="row justify-content-md-center">
-            <div class="col-md-auto d-flex">
-              <router-link to="/" class="">
-                <img src="@/assets/images/oclogo.png" class="logoBottom" />
-              </router-link>
-            </div>
-            <div class="col col-lg-2 d-flex text-justify">
-              <p class="oCTextBottom text-white mt-5">OutbackClothes</p>
-            </div>
-          </div>
-        </div>
+      
+      <div class="col container-fluid py-3 d-flex bg-dark justify-content-center">
+        <router-link to="/" class="navbar-brand ">
+          <img src="@/assets/images/oclogo.png" class="logoBottom" />
+          <span class="oCTextBottom">OutbackClothes</span>
+        </router-link>
       </div>
     </div>
   </div>
@@ -95,12 +85,26 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.logoBottom {
-  width: 260px;
-  height: 120px;
-}
+<style>
+    .logoBottom {
+        width: 260px;
+        height: 120px;
+        margin-left: 100px;
+    }
 
-.oCTextBottom {
-}
+    .oCTextBottom {
+        color: black;
+        margin-left: -40px;
+    }
+
+    .payCards,
+    .socialCards {
+        font-size: 60px;  
+        color: white;
+    }
+
+    .aboutOC{
+        color: white;
+    }
+
 </style>
