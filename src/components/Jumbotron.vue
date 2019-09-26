@@ -10,35 +10,18 @@
           <div class="w-100 text-white">  
 
               <div class="row">
-                <div class="col s12 m6">
+                <div class="col-12 col-md-6">
                   <div class="card-transparent white darken-1 text-left">
                     <div class="card-content">
                       <span class="card-title text-uppercase display-1 font-weight-bolder">Winter 2020</span>
                       <p class="font-weight-bold">The winter collection 2020 is now in stock.</p>
                     </div>
                   <div class="card-action">
-                    <a href="#" class="btn btn-btn">Shop Now!</a>
+                    <router-link to="/" class="btn btn-btn">Add to cart</router-link>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!--OLD CARD-->
-            <!-- <div class="card-transparent mb-3 text-left shadow">
-                <div class="row no-gutters">
-                     <div class="col-md-4" id="boxshadow">
-                        <img src="../assets/images/promo2.png" class="card-img" alt="winter collection">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title display-4 text-dark font-weight-bold">Winter 2020</h5>
-                            <p class="card-text text-dark font-weight-bold">The winter collection 2020 is now in stock.</p>
-                            <a href="#" class="btn text-dark">Go to collection</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
           </div>
         </div>
       </div>
@@ -99,7 +82,7 @@ export default {
       header {
         position: relative;
         background-color: black;
-        height: 75vh;
+        height: 50vh;
         min-height: 25rem;
         width: 100%;
         overflow: hidden;
@@ -120,7 +103,6 @@ export default {
           .container {
             position: relative;
             z-index: 2;
-            margin-top: 5rem;
               .card-transparent {
                 font-family: 'Raleway', sans-serif;
                 max-width: 600px;
@@ -220,10 +202,11 @@ export default {
 //   z-index: 1;
 // }
 
-@media (pointer: coarse) and (hover: none) {
+@media (max-width: 500px) and (pointer: coarse) and (hover: none) {
   header {
     background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
   }
+  
   header video {
     display: none;
   }
