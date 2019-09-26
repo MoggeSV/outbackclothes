@@ -13,7 +13,7 @@
                 <div class="col s12 m6">
                   <div class="card-transparent white darken-1 text-left">
                     <div class="card-content">
-                      <span class="card-title text-white text-uppercase display-1 font-weight-bolder">Winter 2020</span>
+                      <span class="card-title text-uppercase display-1 font-weight-bolder">Winter 2020</span>
                       <p class="font-weight-bold">The winter collection 2020 is now in stock.</p>
                     </div>
                   <div class="card-action">
@@ -135,6 +135,12 @@ export default {
                 .open>.dropdown-toggle.btn-primary {
                   filter: brightness(120%);
                   border-color: #78B9C4;
+                }
+                .card-title {
+                  text-shadow: 2px 2px black;
+                }
+                p {
+                  text-shadow: 1px 1px black;
                 }
               }
           }
