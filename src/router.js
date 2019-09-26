@@ -2,7 +2,10 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import About from './views/About.vue'
-import Children from './components/Children.vue'
+import Children from './views/Children.vue'
+import Men from './views/Men.vue'
+import Woman from './views/Woman.vue'
+import Checkout from './views/Checkout.vue'
 
 Vue.use(Router);
 
@@ -22,6 +25,21 @@ export default new Router({
       path: "/children",
       name: "Children",
       component: Children
+    },
+    {
+      path: "/men",
+      name: "Men",
+      component: Men
+    },
+    {
+      path: "/woman",
+      name: "Woman",
+      component: Woman
+    },
+    {
+      path: "/checkout",
+      name: "Checkout",
+      component: Checkout
     },
   ]
 });
