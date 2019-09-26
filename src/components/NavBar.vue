@@ -41,13 +41,15 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link to="checkout" class="nav-link">
-                <i class="fas fa-shopping-bag"></i>
-              </router-link>
+            <a class="nav-link" href="#">
+                <i class="fas fa-shopping-bag" v-on:click="showingCart = !showingCart">
+                </i>
+                </a>
             </li>
           </ul>
         </div>
       </div>
+      <SmallCart v-if="showingCart === true" class="small-cart"/>
     </nav>
     <!-- Minde än LG -->
 
@@ -85,6 +87,7 @@
           </li>
         <li class="nav-item">
             <router-link to="/checkout" class="nav-link"><i class="fas fa-shopping-bag"></i>  Varukorg </router-link>
+            
         </li>
         </ul>
       </div>
@@ -93,11 +96,33 @@
 </template>
  
  <script>
+import SmallCart from '@/components/SmallCart'
+
 export default {
-  name: "NavBar"
+  name: "NavBar",
+  components: {
+    SmallCart
+  },
+  data: function() {
+    return {
+      showingCart: false
+    }
+  }
 };
 </script>
  <style>
+
+ nav {
+   position: relative;
+ }
+
+ .small-cart {
+   position: absolute;
+   z-index: 1000;
+   right: 80px;
+   top: 40px;
+ }
+
 .logo {
   width: 70px;
   height: 30px;
