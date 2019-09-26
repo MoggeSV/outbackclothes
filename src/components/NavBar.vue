@@ -40,9 +40,9 @@
                 <i class="far fa-user-circle"></i>
               </router-link>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" v-on:click="showingCart = !showingCart">
             <a class="nav-link" href="#">
-                <i class="fas fa-shopping-bag" v-on:click="showingCart = !showingCart">
+                <i class="fas fa-shopping-bag">
                 </i>
                 </a>
             </li>
