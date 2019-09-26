@@ -1,7 +1,11 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
-import Jumbotron from './components/Jumbotron'
+import About from './views/About.vue'
+import Children from './views/Children.vue'
+import Men from './views/Men.vue'
+import Woman from './views/Woman.vue'
+import Checkout from './views/Checkout.vue'
 
 Vue.use(Router);
 
@@ -15,11 +19,27 @@ export default new Router({
     {
       path: "/about",
       name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
-    }
+      component: About
+    },
+    {
+      path: "/children",
+      name: "Children",
+      component: Children
+    },
+    {
+      path: "/men",
+      name: "Men",
+      component: Men
+    },
+    {
+      path: "/woman",
+      name: "Woman",
+      component: Woman
+    },
+    {
+      path: "/checkout",
+      name: "Checkout",
+      component: Checkout
+    },
   ]
 });
