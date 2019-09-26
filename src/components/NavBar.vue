@@ -20,7 +20,7 @@
               <router-link to="/men" class="nav-link border-end">MAN</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/women" class="nav-link border-end">KVINNA</router-link>
+              <router-link to="/woman" class="nav-link border-end">KVINNA</router-link>
             </li>
             <li class="nav-item">
               <router-link to="/children" class="nav-link custom-line-height">BARN</router-link>
