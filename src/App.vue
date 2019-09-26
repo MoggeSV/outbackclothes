@@ -16,7 +16,10 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
-
+body {
+        font-family: 'Raleway', sans-serif;
+}
 </style>
