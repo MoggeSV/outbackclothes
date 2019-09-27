@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
+      <TopNav />
       <NavBar />
 
     </div>
@@ -9,10 +10,12 @@
 </template>
 <script>
 import NavBar from '@/components/NavBar'
+import TopNav from '@/components/TopNav.vue'
 export default {
   name: 'app',
   components: {
-    NavBar
+    NavBar,
+    TopNav
   }
 }
 </script>
