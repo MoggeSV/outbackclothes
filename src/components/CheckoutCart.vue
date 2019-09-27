@@ -44,7 +44,7 @@
                 </li>
             </ul>
         </div>
-        <div id="checkout-price" class="shadow-bottom-inset-price">
+        <div id="checkout-price" class="shadow-inset-price">
             <div class="row mt-1">
                 <div class="col-6 inline-flex justify-content-center">
                     <div class="row">
@@ -97,12 +97,20 @@
                 </div>
             </div>
         </div>
+        <div id="checkout-form">
+            <CheckoutForm />
+        </div>
     </div>
 </template>
 
 <script>
+import CheckoutForm from './CheckoutForm';
+
 export default {
-    name: "CheckoutCart"
+    name: "CheckoutCart",
+    components: {
+        CheckoutForm
+    }
 }
 </script>
 
@@ -149,7 +157,16 @@ export default {
     }
 
     .shadow-bottom-inset-price {
-        box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.4);
+        box-shadow: inset 0 -7px 9px -7px rgba(0,0,0,0.5);
+    }
+
+    .shadow-top-inset-price {
+        box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.6);
+    }
+
+    .shadow-inset-price {
+        box-shadow: inset 0 -7px 9px -7px rgba(0,0,0,0.5),
+                    inset 0 7px 9px -7px rgba(0,0,0,0.6);
     }
 
     .custom-muted-text {
