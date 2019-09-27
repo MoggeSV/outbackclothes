@@ -44,11 +44,11 @@ name: 'TopNav'
             font-weight: 500;
           }
           a {
-              color:black
+              color:rgb(243, 243, 243);
             }
             a:hover {
               cursor: pointer;
-              color:rgb(243, 243, 243);
+              color:black;
               
             }
         }
