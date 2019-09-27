@@ -1,6 +1,6 @@
 <template>
     <div id="small-cart">
-        <div id="small-cart-header">
+        <div id="small-cart-header" class="shadow-bottom-inset">
             <h6 class="mt-2">
                 <span class="text-muted">
                     <i class="fas fa-mountain"></i>
@@ -147,6 +147,10 @@ export default {
     box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.3);
     box-sizing: content-box;
     overflow: hidden;
+}
+
+.shadow-bottom-inset {
+    box-shadow: inset 0 -7px 9px -9px rgba(0,0,0,0.3);
 }
 
 .no-inline-padding {
