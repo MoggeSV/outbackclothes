@@ -3,19 +3,27 @@
     <div id="nav">
       <TopNav />
       <NavBar />
+      
 
     </div>
     <router-view />
+    <div id="footer">
+      <Footer />
+
+
+    </div>
   </div>
 </template>
 <script>
 import NavBar from '@/components/NavBar'
 import TopNav from '@/components/TopNav.vue'
+import Footer from '@/components/Footer.vue'
 export default {
   name: 'app',
   components: {
     NavBar,
-    TopNav
+    TopNav,
+    Footer
   }
 }
 </script>

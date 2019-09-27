@@ -1,0 +1,128 @@
+<template>
+  <div class="pt-3">
+    
+    <!-- Footer -->
+    <div class="page-footer">
+      <div class="container-fluid upperFooter">
+        <div class="row">
+
+          <!-- Grid Column -->
+          <div class="col aboutContainer text-center">
+            <h5 class="font-weight-bold aboutOCUpper text-uppercase mt-3 mb-4">Villka är OC?</h5>
+            <div class="aboutOC mx-auto">
+              <p>Lorem, ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit aliquam maxime sed perspiciatis quaerat dicta perferendis quidem tempore dolore quod? consectetur adipisicing elit. At, deleniti doloremque aliquid dignissimos aperiam debitis. Ipsam, nam eos. Ab veritatis autem, obcaecati corporis corrupti mollitia nam ipsam possimus accusamus sapiente?</p>
+            </div>
+          </div>
+          <!-- Grid Column -->
+
+          <hr class="clearfix w-100 d-md-none" />
+
+          <!-- Grid column -->
+          <div class="col text-center">
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Betalsätt</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!"><i class="fab payCards fa-cc-mastercard"></i></a>
+              </li>
+              <li>
+                <a href="#!"><i class="fab payCards fa-cc-visa"></i></a>
+              </li>
+              <li>
+                <a href="#!"><i class="fab payCards fa-cc-amex"></i></a>
+              </li>
+              <h5 class="fontweight-bold text-uppercase mt-3 mb-4">Vi skickar med</h5>
+              <li>
+                <img src="https://www.postnord.com/UI/gfx/logo-white.svg" alt="postnord" class="postNordIMG">
+              </li>
+            </ul>
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none" />
+
+          <!-- Grid column -->
+          <div class="col mx-auto text-center">
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Följ oss!</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!"><i class="fab socialCards fa-twitter-square"></i></a>
+              </li>
+              <li>
+                <a href="#!"><i class="fab socialCards fa-facebook-square"></i></a>
+              </li>
+              <li>
+                <a href="#!"><i class="fab socialCards fa-instagram"></i></a>
+              </li>
+              <li>
+                <a href="#!"><i class="fab socialCards fa-google-plus-square"></i></a>
+              </li>
+            </ul>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+      
+      <div class="container-fluid backgroundBottom d-flex bottomFooter justify-content-center">
+        <router-link to="/" class="navbar-brand ">
+          <img src="@/assets/images/oclogo.png" class="logoBottom" />
+          <span class="oCTextBottom">OutbackClothes</span>
+        </router-link>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Footer",
+  data() {
+    return {
+      // title: 'En fin titel',
+      // description: 'En ännu finare beskrivning av innehållet',
+      // show: false
+    };
+  }
+};
+</script>
+
+<style>
+    .logoBottom {
+        width: 180px;
+        height: 75px;
+        margin-left: 100px;
+    }
+
+    .oCTextBottom {
+        color: rgb(255, 255, 255);
+        margin-left: -30px;
+    }
+
+    .payCards,
+    .socialCards {
+        font-size: 60px;  
+        color: white;
+    }
+
+    .payCards:hover,
+    .socialCards:hover {
+      color: black;
+    }
+
+    .aboutOC{
+        color: white;
+        text-align: center;
+        width: 78%;
+    }
+
+    .upperFooter{
+      background-color: #7295AD;
+      color: rgb(243, 243, 243);
+    }
+
+    .bottomFooter {
+      background-color: #3A4C58;
+    }
+
+
+</style>
