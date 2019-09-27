@@ -155,7 +155,7 @@ export default {
 }
 
 .shadow-bottom-inset {
-    box-shadow: inset 0 -7px 9px -9px rgba(0,0,0,0.3);
+    box-shadow: inset 0 -7px 9px -9px rgba(255, 26, 26, 0.4);
 }
 
 .no-inline-padding {
