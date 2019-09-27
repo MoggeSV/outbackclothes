@@ -46,11 +46,20 @@
         </div>
         <div id="checkout-price" class="shadow-bottom-inset-price">
             <div class="row mt-1">
-                <div class="col-6">
+                <div class="col-6 inline-flex justify-content-center">
                     <div class="row">
-                        <h4>Totalsumma</h4>
+                        <h3>Har du en rabattkod?</h3>
                     </div>
-                    
+                    <div class="row">
+                        <div class="col" style="padding: 0px;">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Ange den här isåfall :)" aria-label="Ange koden här" aria-describedby="button-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary code-button" type="button" id="button-addon2">Aktivera</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-3 offset-md-3">
                     <div class="row">
@@ -149,6 +158,11 @@ export default {
 
     .border-bottom-faded {
         border-bottom: 1px solid rgba(255,255,255, 0.3);
+    }
+
+    .code-button {
+        border: .5px solid rgba(255,255,255, 0.5);
+        color: white;
     }
 
 </style>
