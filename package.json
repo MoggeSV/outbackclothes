@@ -11,6 +11,8 @@
     "core-js": "^2.6.5",
     "firebase": "^6.6.2",
     "firestore": "^1.1.6",
+    "mdbootstrap": "^4.8.10",
+    "mdbvue": "^5.8.2",
     "vue": "^2.6.10",
     "vue-carousel": "^0.18.0",
     "vue-router": "^3.0.3"

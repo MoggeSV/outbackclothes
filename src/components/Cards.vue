@@ -288,7 +288,7 @@ import {
   mdbBtn
 } from "mdbvue";
 export default {
-  name: "boxes",
+  name: "Cards",
   components: {
     mdbMultiCarousel,
     mdbCarouselItem,

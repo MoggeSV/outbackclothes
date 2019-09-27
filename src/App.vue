@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
+      <TopNav />
       <NavBar />
       
 
@@ -15,11 +16,13 @@
 </template>
 <script>
 import NavBar from '@/components/NavBar'
-import Footer from '@/components/Footer'
+import TopNav from '@/components/TopNav.vue'
+import Footer from '@/components/Footer.vue'
 export default {
   name: 'app',
   components: {
     NavBar,
+    TopNav,
     Footer
   }
 }
