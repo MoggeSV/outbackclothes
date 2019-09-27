@@ -115,6 +115,7 @@ export default {
 .checkout-btn {
     background: #72BAB2;
     color: white;
+    text-transform: uppercase;
 }
 
 .checkout-btn:hover {
