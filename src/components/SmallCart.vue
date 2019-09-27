@@ -1,7 +1,7 @@
 <template>
     <div id="small-cart">
         <div id="small-cart-header">
-            <h6>
+            <h6 class="mt-2">
                 <span class="text-muted">
                     <i class="fas fa-mountain"></i>
                 </span>
@@ -11,7 +11,7 @@
         <div id="small-cart-content">
           <!-- List of products here -->
             <div class="products">
-                <ul class="list-group">
+                <ul class="list-group-flush no-inline-padding">
                     <li class="list-group-item">
                         <span class="row">
                             <div class="col-2">1</div>
@@ -20,6 +20,17 @@
                         <span class="row">
                             <div class="col-6"><span class="product-text">Vinterjacka</span></div>
                             <div class="col-4 price">3790 kr</div>
+                            <div class="col-2"><i class="fas fa-minus remove-icon text-muted"></i></div>
+                        </span>
+                    </li>
+                    <li class="list-group-item">
+                        <span class="row">
+                            <div class="col-2">1</div>
+                            <div class="col-9">Peak Performance</div>
+                        </span>
+                        <span class="row">
+                            <div class="col-6"><span class="product-text">Friluftsbyxor</span></div>
+                            <div class="col-4 price">2999 kr</div>
                             <div class="col-2"><i class="fas fa-minus remove-icon text-muted"></i></div>
                         </span>
                     </li>
@@ -39,7 +50,7 @@
         </div>  <!-- End of Content -->
         <!-- End of product list -->
         <!-- Small cart footer -->
-        <div id="small-cart-footer">
+        <div id="small-cart-footer" class="shadow-top-inset">
             <div id="small-cart-total" class="row">
                 <div class="col d-flex justify-content-start mt-3">
                     <span>Totalsumma: <span class="text-muted-dark">(Inkl. moms)</span></span>
@@ -133,9 +144,13 @@ export default {
 
 /* Används inte ATM */ 
 .shadow-top-inset {
-    box-shadow: inset 0 7px 9px -9px rgba(0,0,0,0.3);
+    box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.3);
     box-sizing: content-box;
     overflow: hidden;
+}
+
+.no-inline-padding {
+    padding-inline-start: 0px;
 }
 
 
