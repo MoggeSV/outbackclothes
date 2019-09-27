@@ -50,7 +50,7 @@
         </div>
       </div>
       <transition name="fade">
-        <SmallCart v-if="showingCart === true" class="small-cart"/>
+        <SmallCart @clicked="closeSmallCart" v-if="showingCart === true" class="small-cart"/>
       </transition>
     </nav>
     <!-- Menu for screens smaller than large -->
@@ -107,6 +107,12 @@ export default {
   data: function() {
     return {
       showingCart: false
+    }
+  },
+  methods: {
+    closeSmallCart(value) {
+      this.showingCart = false;
+      console.log(this.showingCart);
     }
   }
 };

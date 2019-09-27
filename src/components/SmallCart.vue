@@ -62,7 +62,7 @@
             <div id="small-cart-checkout" class="row mt-2">
                 <div class="col d-flex justify-content-end">
                     <router-link to="/checkout" class="btn checkout-btn">
-                        <i class="far fa-credit-card"></i> Gå vidare
+                        <span v-on:click="closeSmallCart(false)"><i class="far fa-credit-card"></i> Gå vidare</span>
                     </router-link>
                 </div>
             </div>
@@ -72,7 +72,12 @@
 
 <script>
 export default {
-    name: "SmallCart"
+    name: "SmallCart",
+    methods: {
+        closeSmallCart:function ( event ) {
+            this.$emit('clicked', false)
+        }
+    }
 }
 </script>
 
