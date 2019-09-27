@@ -44,6 +44,50 @@
                 </li>
             </ul>
         </div>
+        <div id="checkout-price" class="shadow-bottom-inset">
+            <div class="row mt-1">
+                <div class="col-6">
+                    <div class="row">
+                        <h4>Totalsumma</h4>
+                    </div>
+                    
+                </div>
+                <div class="col-3 offset-md-3">
+                    <div class="row">
+                        <div class="col">
+                            <span class="w-100" style="text-align: justify;">Deltotal</span>
+                        </div>
+                        <div class="col">
+                            <span>4798 kr</span>
+                        </div>
+                    </div>
+                    <!--  d-flex justify-content-end mr-4 -->
+                    <div class="row d-flex justify-content-center custom-muted-text">
+                        <div class="col">
+                            <span class="w-100 font-weight-normal" style="text-align: justify;">Moms</span>
+                        </div>
+                        <div class="col">
+                            <span>0 kr</span>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center custom-muted-text border-bottom-faded mb-2">
+                        <div class="col">
+                            <span class="w-100" style="text-align: justify;">Frakt</span>
+                        </div>
+                        <div class="col">
+                            <span class="">0 kr</span>
+                        </div>
+                        
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col">
+                            <span class="w-100 font-weight-bold">Totalsumma</span>
+                        </div>
+                        <div class="col"><span class="font-weight-bold">4798 kr</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -58,10 +102,11 @@ export default {
         background: rgb(255, 255, 255);
     }
     #checkout-cart {
-        background: white;
         -webkit-box-shadow: 0px 0px 19px -6px rgba(0,0,0,0.30);
         -moz-box-shadow: 0px 0px 19px -6px rgba(0,0,0,0.30);
         box-shadow: 0px 0px 19px -6px rgba(0,0,0,0.30);
+
+        padding: 0;
     }
 
     .list-group-item {
@@ -86,4 +131,23 @@ export default {
     .smaller-text {
         font-size: .9rem;
     }
+    
+    #checkout-price {
+        padding: 10px;
+        padding-left: 48px;
+        background-color: #7295AD;
+        color: white;
+    }
+    .shadow-bottom-inset {
+        box-shadow: inset 0 7px 9px -7px rgba(0,0,0,1); 
+    }
+
+    .custom-muted-text {
+        color:rgb(206, 206, 206)
+    }
+
+    .border-bottom-faded {
+        border-bottom: 1px solid rgba(255,255,255, 0.3);
+    }
+
 </style>
