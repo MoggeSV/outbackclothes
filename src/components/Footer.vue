@@ -87,8 +87,8 @@ export default {
 
 <style>
     .logoBottom {
-        width: 260px;
-        height: 120px;
+        width: 240px;
+        height: 110px;
         margin-left: 100px;
     }
 
