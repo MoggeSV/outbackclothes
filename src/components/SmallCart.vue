@@ -52,10 +52,15 @@
         <!-- Small cart footer -->
         <div id="small-cart-footer" class="shadow-top-inset">
             <div id="small-cart-total" class="row">
-                <div class="col d-flex justify-content-start mt-3">
-                    <span>Totalsumma: <span class="text-muted-dark">(Inkl. moms)</span></span>
+                <div class="col ml-4 mt-3">
+                    <div class="row">
+                        <span>Delsumma:</span>
+                    </div>
+                    <div class="row">
+                        <span class="text-muted-dark">(Inkl. moms)</span>
+                    </div>
                 </div>
-                <div class="col mt-3 d-flex justify-content-end">
+                <div class="col mt-3 d-flex justify-content-end mr-2">
                     <span style="font-weight: bold; background:">3784 kr</span>
                 </div>
             </div>
@@ -155,7 +160,7 @@ export default {
 }
 
 .shadow-bottom-inset {
-    box-shadow: inset 0 -7px 9px -9px rgba(255, 26, 26, 0.4);
+    box-shadow: inset 0 -7px 9px -9px rgba(0, 0, 0, 0.4);
 }
 
 .no-inline-padding {
