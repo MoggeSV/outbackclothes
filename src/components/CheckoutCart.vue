@@ -44,7 +44,7 @@
                 </li>
             </ul>
         </div>
-        <div id="checkout-price" class="shadow-bottom-inset">
+        <div id="checkout-price" class="shadow-bottom-inset-price">
             <div class="row mt-1">
                 <div class="col-6">
                     <div class="row">
@@ -138,8 +138,9 @@ export default {
         background-color: #7295AD;
         color: white;
     }
-    .shadow-bottom-inset {
-        box-shadow: inset 0 -7px 9px -9px rgba(74, 66, 66, 0.4)
+
+    .shadow-bottom-inset-price {
+        box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.4);
     }
 
     .custom-muted-text {
