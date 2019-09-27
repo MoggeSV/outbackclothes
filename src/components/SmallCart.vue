@@ -143,7 +143,6 @@ export default {
     font-size: 0.8em;
 }
 
-/* Används inte ATM */ 
 .shadow-top-inset {
     box-shadow: inset 0 7px 9px -7px rgba(0,0,0,0.3);
     box-sizing: content-box;
