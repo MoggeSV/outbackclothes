@@ -1,6 +1,7 @@
 <template>
   <div>
-    <!-- För stora skärmar -->
+    
+    <!-- Menu for large screens -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white d-none d-lg-block">
       <button
         class="navbar-toggler"
@@ -41,10 +42,9 @@
               </router-link>
             </li>
             <li class="nav-item" v-on:click="showingCart = !showingCart">
-            <a class="nav-link" href="#">
-                <i class="fas fa-shopping-bag">
-                </i>
-                </a>
+              <a class="nav-link" href="#">
+                  <i class="fas fa-shopping-bag"></i>
+              </a>
             </li>
           </ul>
         </div>
@@ -52,15 +52,14 @@
       <transition name="fade">
         <SmallCart v-if="showingCart === true" class="small-cart"/>
       </transition>
-      
     </nav>
-    <!-- Minde än LG -->
+    <!-- Menu for screens smaller than large -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white d-lg-none">
-        <router-link to="/" class="navbar-brand mx-auto">
-            <img src="@/assets/images/oclogo.png" class="logo" />
-            <span>OutbackClothes</span>
-        </router-link>
+      <router-link to="/" class="navbar-brand mx-auto">
+          <img src="@/assets/images/oclogo.png" class="logo" />
+          <span>OutbackClothes</span>
+      </router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -85,12 +84,11 @@
           <li class="nav-item">
             <router-link to="/children" class="nav-link">Barn</router-link>
           </li>
-        <li class="nav-item">
+          <li class="nav-item">
             <router-link to="/profile" class="nav-link"><i class="far fa-user-circle"></i> Profil</router-link>
-          </li>
-        <li class="nav-item">
+            </li>
+          <li class="nav-item">
             <router-link to="/checkout" class="nav-link"><i class="fas fa-shopping-bag"></i>  Varukorg </router-link>
-            
         </li>
         </ul>
       </div>
