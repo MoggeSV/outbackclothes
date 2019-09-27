@@ -97,8 +97,10 @@
                 </div>
             </div>
         </div>
-        <div id="checkout-form">
-            <CheckoutForm />
+        <div id="checkout-form" class="row mt-5">
+            <div class="col-6">
+                <CheckoutForm />
+            </div>
         </div>
     </div>
 </template>
@@ -115,9 +117,6 @@ export default {
 </script>
 
 <style>
-    body {
-        background: rgb(255, 255, 255);
-    }
     #checkout-cart {
         -webkit-box-shadow: 0px 0px 19px -6px rgba(0,0,0,0.30);
         -moz-box-shadow: 0px 0px 19px -6px rgba(0,0,0,0.30);
@@ -180,6 +179,15 @@ export default {
     .code-button {
         border: .5px solid rgba(255,255,255, 0.5);
         color: white;
+    }
+
+    .custom-card{
+        border: none;
+        
+    }
+
+    .custom-card img{
+        width: 100%;
     }
 
 </style>
