@@ -139,7 +139,7 @@ export default {
         color: white;
     }
     .shadow-bottom-inset {
-        box-shadow: inset 0 7px 9px -7px rgba(0,0,0,1); 
+        box-shadow: inset 0 -7px 9px -9px rgba(74, 66, 66, 0.4)
     }
 
     .custom-muted-text {
