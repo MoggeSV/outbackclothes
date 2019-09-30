@@ -3,7 +3,8 @@ export default {
     authDomain: "outbackclothes.firebaseapp.com",
     databaseURL: "https://outbackclothes.firebaseio.com",
     projectId: "outbackclothes",
-    storageBucket: "outbackclothes.appspot.com",
+    // storageBucket: "outbackclothes.appspot.com",
+    storageBucket: "gs://outbackclothes.appspot.com",
     messagingSenderId: "332026810468",
     appId: "1:332026810468:web:1c902ef94b3c45af734f71"
 }
