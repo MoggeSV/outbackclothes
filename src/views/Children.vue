@@ -1,7 +1,8 @@
 <template>
   <div class="container w-50">
+      <input type="text" v-model="search" placeholder="Sök varumärke.."/>
     <div class="card-columns text-center">
-        <div v-for="product in products" v-bind:key="product.id">
+        <div v-for="product in filteredList" v-bind:key="product.id">
             <div class="card pt-3">
                 <!-- <img :src="require(`@/assets/images/children/${product.img_url}`)"/> -->
                 <!-- <div class="loading-container" v-if="loading">
@@ -11,7 +12,7 @@
                 <div class="card-body">
                     <small>{{product.category}}</small>
                     <h5 class="card-title">{{product.price}} kr</h5>
-                    <h6 class="card-title">{{product.title}}</h6>
+                    <h6 class="card-title">{{product.name}}</h6>
                     <h6 class="card-title">{{product.brand}}</h6>
                     <p class="card-text">{{product.description}}</p>
                     <input type="number" value="1" min="0">
@@ -29,7 +30,8 @@ export default {
     name: 'children',
     data() {
         return {
-            products: []
+            products: [],
+            search: ''
             //loading: false
         }
     },
@@ -55,7 +57,14 @@ export default {
                 this.products.push(data)
             })
         })
+    },
+    computed: {
+        filteredList() {
+        return this.products.filter(product => {
+            return product.name.toLowerCase().includes(this.search.toLowerCase())
+        })
     }
+  }
 }
 </script>
 
