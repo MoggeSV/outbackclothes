@@ -1,312 +1,168 @@
 <template>
-  <mdb-container class="mt-5">
-    <mdb-multi-carousel :interval="8000" showControls showIndicators slide>
-      <template>
-        <mdb-carousel-item>
-          <mdb-row class="carousel__item">
-            <mdb-col md="4">
-              <mdb-card class="mb-2">
-                <mdb-card-image
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
-                  alt="Card image cap"
-                  waves
-                ></mdb-card-image>
-                <mdb-card-body>
-                  <mdb-card-title>Man</mdb-card-title>
-                  <mdb-card-text>Klädesplagg.</mdb-card-text>
-                  <mdb-btn color="primary">Pris</mdb-btn>
-                </mdb-card-body>
-              </mdb-card>
-            </mdb-col>
-            <mdb-col md="4" class="clearfix d-none d-md-block">
-              <mdb-card class="mb-2">
-                <mdb-card-image
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
-                  alt="Card image cap"
-                  waves
-                ></mdb-card-image>
-                <mdb-card-body>
-                  <mdb-card-title>Kvinna</mdb-card-title>
-                  <mdb-card-text>Klädesplagg.</mdb-card-text>
-                  <mdb-btn color="primary">Pris</mdb-btn>
-                </mdb-card-body>
-              </mdb-card>
-            </mdb-col>
-            <mdb-col md="4" class="clearfix d-none d-md-block">
-              <mdb-card class="mb-2">
-                <mdb-card-image
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
-                  alt="Card image cap"
-                  waves
-                ></mdb-card-image>
-                <mdb-card-body>
-                  <mdb-card-title>Barn</mdb-card-title>
-                  <mdb-card-text>Klädesplagg.</mdb-card-text>
-                  <mdb-btn color="primary">Pris</mdb-btn>
-                </mdb-card-body>
-              </mdb-card>
-            </mdb-col>
-          </mdb-row>
-        </mdb-carousel-item>
-        <mdb-carousel-item>
-          <mdb-row class="carousel__item">
-            <mdb-col md="4">
-              <mdb-card class="mb-2">
-                <mdb-card-image
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(60).jpg"
-                  alt="Card image cap"
-                  waves
-                ></mdb-card-image>
-                <mdb-card-body>
-                  <mdb-card-title>Man</mdb-card-title>
-                  <mdb-card-text>Klädesplagg.</mdb-card-text>
-                  <mdb-btn color="primary">Pris</mdb-btn>
-                </mdb-card-body>
-              </mdb-card>
-            </mdb-col>
-            <mdb-col md="4" class="clearfix d-none d-md-block">
-              <mdb-card class="mb-2">
-                <mdb-card-image
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(47).jpg"
-                  alt="Card image cap"
-                  waves
-                ></mdb-card-image>
-                <mdb-card-body>
-                  <mdb-card-title>Kvinna</mdb-card-title>
-                  <mdb-card-text>Klädesplagg.</mdb-card-text>
-                  <mdb-btn color="primary">Pris</mdb-btn>
-                </mdb-card-body>
-              </mdb-card>
-            </mdb-col>
-            <mdb-col md="4" class="clearfix d-none d-md-block">
-              <mdb-card class="mb-2">
-                <mdb-card-image
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(48).jpg"
-                  alt="Card image cap"
-                  waves
-                ></mdb-card-image>
-                <mdb-card-body>
-                  <mdb-card-title>Barn</mdb-card-title>
-                  <mdb-card-text>Klädesplagg.</mdb-card-text>
-                  <mdb-btn color="primary">Pris</mdb-btn>
-                </mdb-card-body>
-              </mdb-card>
-            </mdb-col>
-          </mdb-row>
-        </mdb-carousel-item>
-        <mdb-carousel-item>
-          <mdb-row class="carousel__item">
-            <mdb-col md="4">
-              <mdb-card class="mb-2">
-                <mdb-card-image
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg"
-                  alt="Card image cap"
-                  waves
-                ></mdb-card-image>
-                <mdb-card-body>
-                  <mdb-card-title>Man</mdb-card-title>
-                  <mdb-card-text>Klädesplagg.</mdb-card-text>
-                  <mdb-btn color="primary">Pris</mdb-btn>
-                </mdb-card-body>
-              </mdb-card>
-            </mdb-col>
-            <mdb-col md="4" class="clearfix d-none d-md-block">
-              <mdb-card class="mb-2">
-                <mdb-card-image
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(45).jpg"
-                  alt="Card image cap"
-                  waves
-                ></mdb-card-image>
-                <mdb-card-body>
-                  <mdb-card-title>Kvinna</mdb-card-title>
-                  <mdb-card-text>Klädesplagg.</mdb-card-text>
-                  <mdb-btn color="primary">Pris</mdb-btn>
-                </mdb-card-body>
-              </mdb-card>
-            </mdb-col>
-            <mdb-col md="4" class="clearfix d-none d-md-block">
-              <mdb-card class="mb-2">
-                <mdb-card-image
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(51).jpg"
-                  alt="Card image cap"
-                  waves
-                ></mdb-card-image>
-                <mdb-card-body>
-                  <mdb-card-title>Barn</mdb-card-title>
-                  <mdb-card-text>Klädesplagg.</mdb-card-text>
-                  <mdb-btn color="primary">Pris</mdb-btn>
-                </mdb-card-body>
-              </mdb-card>
-            </mdb-col>
-          </mdb-row>
-        </mdb-carousel-item>
-      </template>
-      <template v-slot:mobile>
-        <mdb-carousel-item class="carousel__item">
-          <mdb-card class="mb-2">
-            <mdb-card-image
-              src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
-              alt="Card image cap"
-              waves
-            ></mdb-card-image>
-            <mdb-card-body>
-              <mdb-card-title>Man</mdb-card-title>
-              <mdb-card-text>Klädesplagg.</mdb-card-text>
-              <mdb-btn color="primary">Pris</mdb-btn>
-            </mdb-card-body>
-          </mdb-card>
-        </mdb-carousel-item>
-        <mdb-carousel-item class="carousel__item">
-          <mdb-card class="mb-2">
-            <mdb-card-image
-              src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
-              alt="Card image cap"
-              waves
-            ></mdb-card-image>
-            <mdb-card-body>
-              <mdb-card-title>Kvinna</mdb-card-title>
-              <mdb-card-text>Klädesplagg.</mdb-card-text>
-              <mdb-btn color="primary">Pris</mdb-btn>
-            </mdb-card-body>
-          </mdb-card>
-        </mdb-carousel-item>
-        <mdb-carousel-item class="carousel__item">
-          <mdb-card class="mb-2">
-            <mdb-card-image
-              src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
-              alt="Card image cap"
-              waves
-            ></mdb-card-image>
-            <mdb-card-body>
-              <mdb-card-title>Barn</mdb-card-title>
-              <mdb-card-text>Klädesplagg.</mdb-card-text>
-              <mdb-btn color="primary">Pris</mdb-btn>
-            </mdb-card-body>
-          </mdb-card>
-        </mdb-carousel-item>
-        <mdb-carousel-item class="carousel__item">
-          <mdb-card class="mb-2">
-            <mdb-card-image
-              src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(60).jpg"
-              alt="Card image cap"
-              waves
-            ></mdb-card-image>
-            <mdb-card-body>
-              <mdb-card-title>Man</mdb-card-title>
-              <mdb-card-text>Klädesplagg.</mdb-card-text>
-              <mdb-btn color="primary">Pris</mdb-btn>
-            </mdb-card-body>
-          </mdb-card>
-        </mdb-carousel-item>
-        <mdb-carousel-item class="carousel__item">
-          <mdb-card class="mb-2">
-            <mdb-card-image
-              src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(47).jpg"
-              alt="Card image cap"
-              waves
-            ></mdb-card-image>
-            <mdb-card-body>
-              <mdb-card-title>Kvinna</mdb-card-title>
-              <mdb-card-text>Klädesplagg.</mdb-card-text>
-              <mdb-btn color="primary">Pris</mdb-btn>
-            </mdb-card-body>
-          </mdb-card>
-        </mdb-carousel-item>
-        <mdb-carousel-item class="carousel__item">
-          <mdb-card class="mb-2">
-            <mdb-card-image
-              src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(48).jpg"
-              alt="Card image cap"
-              waves
-            ></mdb-card-image>
-            <mdb-card-body>
-              <mdb-card-title>Barn</mdb-card-title>
-              <mdb-card-text>Klädesplagg.</mdb-card-text>
-              <mdb-btn color="primary">Pris</mdb-btn>
-            </mdb-card-body>
-          </mdb-card>
-        </mdb-carousel-item>
-        <mdb-carousel-item class="carousel__item">
-          <mdb-card class="mb-2">
-            <mdb-card-image
-              src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg"
-              alt="Card image cap"
-              waves
-            ></mdb-card-image>
-            <mdb-card-body>
-              <mdb-card-title>Man</mdb-card-title>
-              <mdb-card-text>Klädesplagg.</mdb-card-text>
-              <mdb-btn color="primary">Pris</mdb-btn>
-            </mdb-card-body>
-          </mdb-card>
-        </mdb-carousel-item>
-        <mdb-carousel-item class="carousel__item">
-          <mdb-card class="mb-2">
-            <mdb-card-image
-              src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(45).jpg"
-              alt="Card image cap"
-              waves
-            ></mdb-card-image>
-            <mdb-card-body>
-              <mdb-card-title>Kvinna</mdb-card-title>
-              <mdb-card-text>Klädesplagg.</mdb-card-text>
-              <mdb-btn color="primary">Pris</mdb-btn>
-            </mdb-card-body>
-          </mdb-card>
-        </mdb-carousel-item>
-        <mdb-carousel-item class="carousel__item">
-          <mdb-card class="mb-2">
-            <mdb-card-image
-              src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(51).jpg"
-              alt="Card image cap"
-              waves
-            ></mdb-card-image>
-            <mdb-card-body>
-              <mdb-card-title>Barn</mdb-card-title>
-              <mdb-card-text>Klädesplagg.</mdb-card-text>
-              <mdb-btn color="primary">Pris</mdb-btn>
-            </mdb-card-body>
-          </mdb-card>
-        </mdb-carousel-item>
-      </template>
-    </mdb-multi-carousel>
-  </mdb-container>
+  <div class="container">
+    <div class="row">
+      <div class="slide">
+        <div id="ProjeCarousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="col-md-4 float-left">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="http://via.placeholder.com/350x350"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body" id="cardBody">
+                    <h4>Man</h4>
+                    <a href="#" class="card-link">Exempel plagg</a>
+                    <p>Exempel pris</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 float-left">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="http://via.placeholder.com/350x350"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body" id="cardBody">
+                    <h4>Kvinna</h4>
+                    <a href="#" class="card-link">Exempel plagg</a>
+                    <p>Exempel pris</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 float-left">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="http://via.placeholder.com/350x350"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body" id="cardBody">
+                    <h4>Barn</h4>
+                    <a href="#" class="card-link">Exempel plagg</a>
+                    <p>Exempel pris</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="col-md-4 float-left">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="http://via.placeholder.com/350x350"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body" id="cardBody">
+                    <h4>Man</h4>
+                    <a href="#" class="card-link">Exempel plagg</a>
+                    <p>Exempel pris</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 float-left">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="http://via.placeholder.com/350x350"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body" id="cardBody">
+                    <h4>Kvinna</h4>
+                    <a href="#" class="card-link">Exempel plagg</a>
+                    <p>Exempel pris</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 float-left">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="http://via.placeholder.com/350x350"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body" id="cardBody">
+                    <h4>Barn</h4>
+                    <a href="#" class="card-link">Exempel plagg</a>
+                    <p>Exempel pris</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="col-md-4 float-left">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="http://via.placeholder.com/350x350"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body" id="cardBody">
+                    <h4>Man</h4>
+                    <a href="#" class="card-link">Exempel plagg</a>
+                    <p>Exempel pris</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 float-left">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="http://via.placeholder.com/350x350"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body" id="cardBody">
+                    <h4>Kvinna</h4>
+                    <a href="#" class="card-link">Exempel plagg</a>
+                    <p>Exempel pris</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 float-left">
+                <div class="card">
+                  <img
+                    class="card-img-top"
+                    src="http://via.placeholder.com/350x350"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body" id="cardBody">
+                    <h4>Barn</h4>
+                    <a href="#" class="card-link">Exempel plagg</a>
+                    <p>Exempel pris</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#ProjeCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+          <a class="carousel-control-next" href="#ProjeCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import {
-  mdbMultiCarousel,
-  mdbCarouselItem,
-  mdbContainer,
-  mdbRow,
-  mdbCol,
-  mdbCard,
-  mdbCardImage,
-  mdbCardBody,
-  mdbCardTitle,
-  mdbCardText,
-  mdbBtn
-} from "mdbvue";
-export default {
-  name: "boxes",
-  components: {
-    mdbMultiCarousel,
-    mdbCarouselItem,
-    mdbContainer,
-    mdbRow,
-    mdbCol,
-    mdbCard,
-    mdbCardImage,
-    mdbCardBody,
-    mdbCardTitle,
-    mdbCardText,
-    mdbBtn
-  }
-};
+export default {};
 </script>
 
 <style>
-.carousel__item {
-  padding: 10px;
+#ProjeCarousel {
+  margin-top: 2em;
+}
+
+#cardBody {
+  text-align: center;
 }
 </style>
