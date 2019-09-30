@@ -8,7 +8,7 @@
 
           <!-- Grid Column -->
           <div class="col aboutContainer text-center">
-            <h5 class="font-weight-bold aboutOCUpper text-uppercase mt-3 mb-4">Villka är OC?</h5>
+            <h5 class="font-weight-bold aboutOCUpper text-uppercase mt-3 mb-4">Vilka är OC?</h5>
             <div class="aboutOC mx-auto">
               <p>Lorem, ipsum dolor sit amet Lorem ipsum dolor, Odit aliquam maxime sed perspiciatis quaerat dicta perferendis quidem tempore dolore quod? consectetur adipisicing elit. At, deleniti doloremque aliquid dignissimos aperiam debitis. Ipsam, nam eos. Ab veritatis autem, obcaecati corporis corrupti mollitia nam ipsam possimus accusamus sapiente?</p>
             </div>
