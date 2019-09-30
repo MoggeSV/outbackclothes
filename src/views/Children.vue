@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <small>{{product.category}}</small>
                     <h5 class="card-title">{{product.price}} kr</h5>
-                    <h6 class="card-title">{{product.title}}</h6>
+                    <h6 class="card-title">{{product.name}}</h6>
                     <h6 class="card-title">{{product.brand}}</h6>
                     <p class="card-text">{{product.description}}</p>
                     <input type="number" value="1" min="0">
@@ -29,16 +29,14 @@ export default {
     name: 'children',
     data() {
         return {
-            products: []
-            //loading: false
+            products: [],
+            search: ''
         }
     },
     created() {
-        //this.loading = true
         db.collection('children').orderBy('brand')
         .get()
         .then(querySnapshot => {
-            //this.loading = false
             querySnapshot.forEach(doc => {
                 const data = {
                     'id': doc.id,
@@ -71,7 +69,7 @@ export default {
 }
 
 .card img {
-    width: 200px;
+    width: 100%;
 }
 
 img {
@@ -79,56 +77,10 @@ img {
     height:auto;
 }
 
-
 .card:hover {
     -webkit-box-shadow: 6px 6px 0px -3px rgba(0,0,0,0.2);
     -moz-box-shadow: 6px 6px 0px -3px rgba(0,0,0,0.2);
     box-shadow: 6px 6px 0px -3px rgba(0,0,0,0.2);
-}
-
-
-/* @media screen and (max-width: 500px) {
-        #grid {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 10px; 
-    }
-} */
-
-.lds-ring {
-  display: inline-block;
-  position: relative;
-  width: 64px;
-  height: 64px;
-}
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 51px;
-  height: 51px;
-  margin: 6px;
-  border: 6px solid #fff;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #000 transparent transparent transparent;
-}
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
-}
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 </style>
