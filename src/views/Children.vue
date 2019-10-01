@@ -1,15 +1,25 @@
 <template>
-  <div class="container">
-      <ul class="collection with-header">
-          <li class="collection-header"><h4>Children</h4></li>
-          <li v-for="product in products" v-bind:key="product.id" class="collection-item">
-
-                  {{product.name}}{{product.brand}}{{product.price }} <img :src="require(`@/assets/images/children/${product.img_url}`)"/>
-
-
-              
-            </li>
-      </ul>
+  <div class="container w-50">
+    <div class="card-columns text-center">
+        <div v-for="product in products" v-bind:key="product.id">
+            <div class="card pt-3">
+                <!-- <img :src="require(`@/assets/images/children/${product.img_url}`)"/> -->
+                <!-- <div class="loading-container" v-if="loading">
+                    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                </div> -->
+                <img v-bind:src="product.img_url" />
+                <div class="card-body">
+                    <small>{{product.category}}</small>
+                    <h5 class="card-title">{{product.price}} kr</h5>
+                    <h6 class="card-title">{{product.name}}</h6>
+                    <h6 class="card-title">{{product.brand}}</h6>
+                    <p class="card-text">{{product.description}}</p>
+                    <input type="number" value="1" min="0">
+                    <router-link to="/" class="btn btn-primary">Add to cart</router-link>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
 </template>
 
@@ -19,13 +29,15 @@ export default {
     name: 'children',
     data() {
         return {
-            products: []
+            products: [],
+            search: ''
         }
     },
     created() {
-        db.collection('children').orderBy('name').get().then(querySnapshot => {
+        db.collection('children').orderBy('brand')
+        .get()
+        .then(querySnapshot => {
             querySnapshot.forEach(doc => {
-
                 const data = {
                     'id': doc.id,
                     'brand': doc.data().brand,
@@ -42,10 +54,33 @@ export default {
             })
         })
     }
-
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    input {
+        height: 20px;
+        width: 50px;
+    }
+}
+
+.card img {
+    width: 100%;
+}
+
+img {
+    max-width:100%;
+    height:auto;
+}
+
+.card:hover {
+    -webkit-box-shadow: 6px 6px 0px -3px rgba(0,0,0,0.2);
+    -moz-box-shadow: 6px 6px 0px -3px rgba(0,0,0,0.2);
+    box-shadow: 6px 6px 0px -3px rgba(0,0,0,0.2);
+}
 
 </style>

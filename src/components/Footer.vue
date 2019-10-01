@@ -1,16 +1,16 @@
 <template>
-  <div class="pt-3">
+  <div class="pt-3" id="myFooter">
     
     <!-- Footer -->
-    <div class="page-footer">
+    <div class="page-footer" id="myFooterChild">
       <div class="container-fluid upperFooter">
         <div class="row">
 
           <!-- Grid Column -->
           <div class="col aboutContainer text-center">
-            <h5 class="font-weight-bold aboutOCUpper text-uppercase mt-3 mb-4">Villka är OC?</h5>
+            <h5 class="font-weight-bold aboutOCUpper text-uppercase mt-3 mb-4">Vilka är OC?</h5>
             <div class="aboutOC mx-auto">
-              <p>Lorem, ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit aliquam maxime sed perspiciatis quaerat dicta perferendis quidem tempore dolore quod? consectetur adipisicing elit. At, deleniti doloremque aliquid dignissimos aperiam debitis. Ipsam, nam eos. Ab veritatis autem, obcaecati corporis corrupti mollitia nam ipsam possimus accusamus sapiente?</p>
+              <p>Lorem, ipsum dolor sit amet Lorem ipsum dolor, Odit aliquam maxime sed perspiciatis quaerat dicta perferendis quidem tempore dolore quod? consectetur adipisicing elit. At, deleniti doloremque aliquid dignissimos aperiam debitis. Ipsam, nam eos. Ab veritatis autem, obcaecati corporis corrupti mollitia nam ipsam possimus accusamus sapiente?</p>
             </div>
           </div>
           <!-- Grid Column -->
@@ -18,9 +18,9 @@
           <hr class="clearfix w-100 d-md-none" />
 
           <!-- Grid column -->
-          <div class="col text-center">
+           <div class="col text-center">
             <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Betalsätt</h5>
-            <ul class="list-unstyled">
+            <ul class="list-inline">
               <li>
                 <a href="#!"><i class="fab payCards fa-cc-mastercard"></i></a>
               </li>
@@ -30,13 +30,9 @@
               <li>
                 <a href="#!"><i class="fab payCards fa-cc-amex"></i></a>
               </li>
-              <h5 class="fontweight-bold text-uppercase mt-3 mb-4">Vi skickar med</h5>
-              <li>
-                <img src="https://www.postnord.com/UI/gfx/logo-white.svg" alt="postnord" class="postNordIMG">
-              </li>
             </ul>
           </div>
-          <!-- Grid column -->
+           <!-- Grid column -->
 
           <hr class="clearfix w-100 d-md-none" />
 
@@ -53,9 +49,7 @@
               <li>
                 <a href="#!"><i class="fab socialCards fa-instagram"></i></a>
               </li>
-              <li>
-                <a href="#!"><i class="fab socialCards fa-google-plus-square"></i></a>
-              </li>
+             
             </ul>
           </div>
           <!-- Grid column -->
@@ -88,19 +82,20 @@ export default {
 
 <style>
     .logoBottom {
-        width: 180px;
-        height: 75px;
-        margin-left: 100px;
+        width: 100px;
+        height: 40px;
+        margin-left: 0px;
     }
 
     .oCTextBottom {
         color: rgb(255, 255, 255);
-        margin-left: -30px;
+        margin-left: -20px;
+        font-size: 16px;
     }
 
     .payCards,
     .socialCards {
-        font-size: 60px;  
+        font-size: 40px;  
         color: white;
     }
 
@@ -112,7 +107,7 @@ export default {
     .aboutOC{
         color: white;
         text-align: center;
-        width: 78%;
+        width: 90%;
     }
 
     .upperFooter{
@@ -124,5 +119,6 @@ export default {
       background-color: #3A4C58;
     }
 
+   
 
 </style>
