@@ -1,6 +1,6 @@
 <template>
   <div>
-      <CheckoutCart />
+      <CheckoutCart class="overflow-hidden"/>
   </div>
 </template>
 
