@@ -99,7 +99,12 @@
         </div>
         <div id="checkout-form" class="row mt-5">
             <div class="col-6">
+                <h3 style="margin-left: 40px;">Handla som gäst</h3>
                 <CheckoutForm />
+            </div>
+            <div class="col-6">
+                <h3>Redan medlem?</h3>
+                <p>Login Form här</p>
             </div>
         </div>
     </div>
