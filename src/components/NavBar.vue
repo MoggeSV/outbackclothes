@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="">
     
     <!-- Menu for large screens -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white d-none d-lg-block">
+      <div class="container">
       <button
         class="navbar-toggler"
         type="button"
@@ -15,10 +16,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="col d-flex justify-content-center">
+        <div class="col d-flex justify-content-left">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <router-link to="/men" class="nav-link border-end">MAN</router-link>
+              <router-link to="/men" class="nav-link border-end custom-left-padding">MAN</router-link>
             </li>
             <li class="nav-item">
               <router-link to="/woman" class="nav-link border-end">KVINNA</router-link>
@@ -34,14 +35,14 @@
             <span>OutbackClothes</span>
           </router-link>
         </div>
-        <div class="col d-flex justify-content-center">
-          <ul class="navbar-nav">
+        <div class="col d-flex justify-content-end">
+          <ul class="navbar-nav custom-right-padding">
             <li class="nav-item">
               <router-link to="/" class="nav-link">
                 <i class="far fa-user-circle"></i>
               </router-link>
             </li>
-            <li class="nav-item" v-on:click="showingCart = !showingCart">
+            <li class="nav-item " v-on:click="showingCart = !showingCart">
               <a class="nav-link" href="#">
                   <i class="fas fa-shopping-bag"></i>
               </a>
@@ -52,6 +53,7 @@
       <transition name="fade">
         <SmallCart @clicked="closeSmallCart" v-if="showingCart === true" class="small-cart"/>
       </transition>
+      </div>
     </nav>
     <!-- Menu for screens smaller than large -->
 
@@ -155,5 +157,13 @@ span {
 
 .fade-enter, .fade-leave-to {
   opacity: 0;
+}
+
+.custom-left-padding {
+  margin-left: -23px;
+}
+
+.custom-right-padding {
+   margin-right: -23px;
 }
 </style>
