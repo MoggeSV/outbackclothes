@@ -1,0 +1,37 @@
+    computed: {
+        
+        filteredClothes() {
+            var category = this.selectedCategory;
+
+            return this.products
+                .filter(product => {
+                    return product.name.toLowerCase().includes(this.search.toLowerCase())
+                })
+            
+                .filter(function(item) {
+                    return item.category === category;
+                })
+
+        }
+
+
+  }
+
+
+          if(category === "All") {
+            return vm.products;
+        } else {
+            return this.products.filter(function(item) {
+                return item.category === category;
+            });
+        }
+
+        return item.category === category;
+
+ if(category === "All") {
+            return this.products;
+        } else {
+            return this.products.filter(function(item) {
+                return item.category === category;
+            });
+        }
