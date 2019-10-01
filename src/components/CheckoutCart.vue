@@ -4,11 +4,11 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-3 col-sm-3 col-md-2 col-lg-2">
+                        <div class="col-4 col-sm-3 col-md-2 col-lg-2">
                             <img src="../assets/images/men/men_1.jpg" class="product-image" alt="">
                         </div>
-                        <div class="col-9 col-sm-9 col-md-10 col-lg-10">
-                            <div class="row d-inline-flex">
+                        <div class="col-8 col-sm-9 col-md-10 col-lg-10">
+                            <div class="row d-inline-flex w-100">
                                 <span class="product-brand">Lyle & Scott</span>
                                 <span class="ml-auto">Antal: 1</span>
                             </div>
@@ -24,10 +24,10 @@
                 </li>
                 <li class="list-group-item">
                     <div class="row">
-                        <div class="col-3 col-sm-3 col-md-2 col-lg-2">
+                        <div class="col-4 col-sm-3 col-md-2 col-lg-2">
                             <img src="../assets/images/men/men_7.jpg" class="product-image" alt="">
                         </div>
-                        <div class="col-9 col-sm-9 col-md-10 col-lg-10">
+                        <div class="col-8 col-sm-9 col-md-10 col-lg-10">
                             <div class="row d-inline-flex w-100">
                                 <span class="product-brand">Tiger of sweden</span>
                                 <span class="ml-auto">Antal: 1</span>
@@ -43,8 +43,6 @@
                     </div>
                 </li>
             </ul>
-            
-
         </div>
         <!-- Price and promo code for larger screens -->
         <div id="checkout-price" class="shadow-inset-price d-none d-md-block">
@@ -73,7 +71,6 @@
                             <span>4798 kr</span>
                         </div>
                     </div>
-                    <!--  d-flex justify-content-end mr-4 -->
                     <div class="row d-flex justify-content-center custom-muted-text">
                         <div class="col">
                             <span class="w-100 font-weight-normal" style="text-align: justify;">Moms</span>
@@ -127,7 +124,7 @@
                         3894 kr
                     </div>
                 </div>
-                <div class="row d-flex justify-content-between text-muted">
+                <div class="row d-flex justify-content-between custom-muted-text">
                     <div class="col-4 d-flex justify-content-start">
                         Frakt:
                     </div>
@@ -135,7 +132,7 @@
                         0 kr
                     </div>
                 </div>
-                <div class="row d-flex justify-content-between text-muted  border-bottom-faded">
+                <div class="row d-flex justify-content-between custom-muted-text  border-bottom-faded">
                     <div class="col-4 d-flex justify-content-start">
                         Rabattkod:
                     </div>
@@ -156,13 +153,12 @@
         <!-- Price and promo code for small screens END -->
 
         <div id="checkout-form" class="row mt-5">
-            <div class="col-6">
+            <div class="col-12 col-md-6 order-md-first">
                 <h3 style="margin-left: 40px;">Handla som gäst</h3>
                 <CheckoutForm />
             </div>
-            <div class="col-6">
-                <h3>Redan medlem?</h3>
-                <p>Login Form här</p>
+            <div class="col-md-6">
+                <Pay />
             </div>
         </div>
     </div>
@@ -170,11 +166,13 @@
 
 <script>
 import CheckoutForm from './CheckoutForm';
+import Pay from './Pay'
 
 export default {
     name: "CheckoutCart",
     components: {
-        CheckoutForm
+        CheckoutForm,
+        Pay
     }
 }
 </script>
