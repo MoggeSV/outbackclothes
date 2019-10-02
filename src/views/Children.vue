@@ -31,7 +31,7 @@
           <!-- <img v-bind:src="product.img_url" class="card-img-top" /> -->
           <div class="card-body">
             <!-- <small>Avdelning: <strong>{{product.category}}</strong></small> -->
-            <h5 class="card-title badge badge-pill badge-info">{{product.price}} kr</h5>
+            <h5 class="card-title badge badge-pill back-color text-light">{{product.price}} kr</h5>
             <h6 class="card-title lead">{{product.name}}</h6>
             <h6 class="card-title"><strong>{{product.brand}}</strong></h6>
             <!-- <p class="card-text">{{product.description}}</p> -->
@@ -39,7 +39,7 @@
           </div>
           <div class="card-footer">
             <input type="number" class="form-control mr-1" value="1" min="0" />
-            <router-link to="/" class="btn btn-dark btn-sm">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
+            <router-link to="/" class="btn back-color btn-sm  text-light">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
           </div>
         </div>
       </div>
@@ -277,6 +277,9 @@ export default {
             height: 1.2em;
         }
     }  
+}
+.back-color {
+  background-color: #7295AD;
 }
 
   @media (max-width: 600px) {
