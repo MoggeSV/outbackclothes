@@ -56,7 +56,7 @@ export default {
     return {
       products: [],
       selectedCategory: "All",
-      selectedBrand: "All",
+      //selectedBrand: "All",
       search: ""
     };
   },
@@ -126,41 +126,10 @@ export default {
     }
   }
 };
-var urlmoviedb = 'https://api.themoviedb.org/3/movie/upcoming?api_key=e082a5c50ed38ae74299db1d0eb822fe';
-
-$(function() {
-$.getJSON(urlmoviedb, function(data) {
-    console.log(data);
-    for (var x = 0; x < data.results.length; x++) {
-    var title = data.results[x].original_title;
-    var descr = data.results[x].overview;
-    var note = data.results[x].vote_average;
-    var noteround = Math.round(2 * note) / 2;
-    var str = "/jj8qgyrfQ12ZLZSY1PEbA3FRkfY.jpg";
-    var imageurl = str.replace("/jj8qgyrfQ12ZLZSY1PEbA3FRkfY.jpg", "https://image.tmdb.org/t/p/w1280");
-    var image = imageurl + data.results[x].backdrop_path;
-
-    //Translate vote average field into number of stars by dividing them by two since vote_average goes from 0 to 10
-    var numberOfStars = Math.round(note/2);
-    var stars = '';
-
-    for(var index = 0; index < numberOfStars; index++)
-        stars += '<span class="fa fa-star"/>';
-
-    $('#image').append('<li>' + '<h2 class="h2-like mt-4">' + title + '</h2>' + "<img class='img-fluid mb-4' src='" + image + "'>" + '<p class="descr">' + descr + '</p>' + stars + '</li>');
-    }
-});
-});
-// var text = "";
-// var i;
-// for (i = 0; i < products.rating.length; i++) {
-//   text += products.rating[i] + "<br>";
-// }
-// document.getElementById("demo").innerHTML = text;
 </script>
 
-
 <style lang="scss" scoped>
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -309,14 +278,6 @@ $.getJSON(urlmoviedb, function(data) {
         }
     }  
 }
-
-
-//SELECT CSS
-
-
-
-//EXPANDABLE SEARCH
-
 
   @media (max-width: 600px) {
     .search-container {
