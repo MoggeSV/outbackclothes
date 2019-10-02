@@ -1,13 +1,27 @@
 <template>
-  <div class="container">
+  <div class="container bg-light">
+    <div id="image "></div>
     <div class="search-container my-5">
         <label class="mr-3 mt-2">Välj kategori</label>
-          <select class="select-css w-25 mr-5" v-model="selectedCategory">
+          <select class="select-css mr-5" v-model="selectedCategory">
             <option value="All">Alla</option>
             <option value="Jackets">Jackor</option>
             <option value="Trousers">Byxor</option>
             <option value="Hats">Mössor</option>
           </select>
+          <!-- <label class="mr-3 mt-2">Välj varumärke</label>
+          <select class="select-css mr-5" v-model="selectedBrand">
+            <option value="All">Alla</option>
+            <option value="Adidas">Adidas</option>
+            <option value="Nike">Nike</option>
+            <option value="Abercrombie & Fitch">Abercrombie & Fitch</option>
+            <option value="Angel & Rocket">Angel & Rocket</option>
+            <option value="Kappa">Kappa</option>
+            <option value="Haglöfs">Haglöfs</option>
+            <option value="Under Armour">Under Armour</option>
+            <option value="Peak Performance">Peak Performance</option>
+            <option value="Burton">Burton</option>
+          </select> -->
 	      <input type="search" v-model="search" placeholder="Search">
     </div>
     <div class="card-columns">
@@ -21,7 +35,7 @@
             <h6 class="card-title lead">{{product.name}}</h6>
             <h6 class="card-title"><strong>{{product.brand}}</strong></h6>
             <!-- <p class="card-text">{{product.description}}</p> -->
-            <p>{{product.rating}}</p>
+            <!-- <p>{{product.rating}}</p> -->
           </div>
           <div class="card-footer">
             <input type="number" class="form-control mr-1" value="1" min="0" />
@@ -42,6 +56,7 @@ export default {
     return {
       products: [],
       selectedCategory: "All",
+      //selectedBrand: "All",
       search: ""
     };
   },
@@ -71,6 +86,7 @@ export default {
   computed: {
     filteredClothes() {
       let category = this.selectedCategory;
+      let brand = this.selectedBrand;
 
       if (category === "All") {
         return this.products.filter(product => {
@@ -110,17 +126,10 @@ export default {
     }
   }
 };
-
-// var text = "";
-// var i;
-// for (i = 0; i < products.rating.length; i++) {
-//   text += products.rating[i] + "<br>";
-// }
-// document.getElementById("demo").innerHTML = text;
 </script>
 
-
 <style lang="scss" scoped>
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -154,7 +163,7 @@ export default {
       color: #444;
       line-height: 1.3;
       padding: .6em 1.4em .5em .8em;
-      width: 100%;
+      width: 25%;
       max-width: 100%; 
       box-sizing: border-box;
       margin: 0;
@@ -205,7 +214,7 @@ export default {
       background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
       border: solid 1px #ccc;
       padding: 9px 10px 9px 32px;
-      width: 55px;
+      width: 200px;
       -webkit-border-radius: 10em;
       -moz-border-radius: 10em;
       border-radius: 10em;
@@ -270,19 +279,20 @@ export default {
     }  
 }
 
-
-//SELECT CSS
-
-
-
-//EXPANDABLE SEARCH
-
-
   @media (max-width: 600px) {
     .search-container {
       display: grid;
       grid-column: 1fr;
       grid-gap: 30px;
+      .select-css {
+        width: 100%;
+      }
+      input[type=search] {
+        width: 200px;
+      }
+      input[type=search]:focus {
+        width: 280px;
+      }
     } 
   }
 
