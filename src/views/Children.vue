@@ -1,152 +1,289 @@
 <template>
-  <div class="container w-50">
-      <input type="text" v-model="search" />
-        <!-- <select v-model="products">
-            <option v-for="product in products" v-bind:key="product.id">{{product}}</option>
-         </select> -->
-<div class="container" id="people">
-	<div class="filter">
-		<label><input type="radio" v-model="selectedCategory" value="All" /> All</label>
-		<label><input type="radio" v-model="selectedCategory" value="Jackets" /> Jackor</label>
-		<label><input type="radio" v-model="selectedCategory" value="Trousers" /> Byxor</label>
-		<label><input type="radio" v-model="selectedCategory" value="Hats" /> Mössor</label>
-	</div>
-</div>
-<span>Sök kategori</span>
-<select v-model="selectedCategory">
- <option value="All">Alla</option>
-  <option value="Jackets">Jackor</option>
-   <option value="Trousers">Byxor</option>
-    <option value="Hats">Mössor</option>
-</select>
-
-    <div class="card-group">
-        <div v-for="product in filteredClothes" v-bind:key="product.id">
-                    <div class="card">
-                        <img :src="require(`@/assets/images/children/${product.img_url}`)" class="card-img-top"/>
-                        <!-- <div class="loading-container" v-if="loading">
-                            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-                        </div> -->
-                        <!-- <img v-bind:src="product.img_url" class="card-img-top" /> -->
-                
-                        <div class="card-body">
-                            <small>{{product.category}}</small>
-                            <h5 class="card-title badge badge-pill badge-info">{{product.price}} kr</h5>
-                            <h6 class="card-title">{{product.name}}</h6>
-                            <h6 class="card-title">{{product.brand}}</h6>
-                            <p class="card-text">{{product.description}}</p>
-                        </div>
-                        <div class="card-footer">
-                            <input type="number" value="1" min="0">
-                            <router-link to="/" class="btn btn-primary btn-sm">Add to cart</router-link>
-                        </div>
-                    </div>
-</div>
-
-        
+  <div class="container">
+    <div class="search-container my-5">
+        <label class="mr-3 mt-2">Välj kategori</label>
+          <select class="select-css w-25 mr-5" v-model="selectedCategory">
+            <option value="All">Alla</option>
+            <option value="Jackets">Jackor</option>
+            <option value="Trousers">Byxor</option>
+            <option value="Hats">Mössor</option>
+          </select>
+	      <input type="search" v-model="search" placeholder="Search">
+    </div>
+    <div class="card-columns">
+      <div v-for="product in filteredClothes" v-bind:key="product.id">
+        <div class="card text-center">
+          <img :src="require(`@/assets/images/children/${product.img_url}`)" class="card-img-top p-1 w-75 h-75" />
+          <!-- <img v-bind:src="product.img_url" class="card-img-top" /> -->
+          <div class="card-body">
+            <!-- <small>Avdelning: <strong>{{product.category}}</strong></small> -->
+            <h5 class="card-title badge badge-pill badge-info">{{product.price}} kr</h5>
+            <h6 class="card-title lead">{{product.name}}</h6>
+            <h6 class="card-title"><strong>{{product.brand}}</strong></h6>
+            <!-- <p class="card-text">{{product.description}}</p> -->
+            <p>{{product.rating}}</p>
+          </div>
+          <div class="card-footer">
+            <input type="number" class="form-control mr-1" value="1" min="0" />
+            <router-link to="/" class="btn btn-dark btn-sm">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import db from '@/components/firebaseInit'
-
+import db from "@/components/firebaseInit";
 
 export default {
-    name: 'children',
-    data() {
-        return {
-            products: [],
-            selectedCategory: "All",
-            search: ''
-        }
-    },
-    created() {
-        db.collection('children').orderBy('brand')
-        .get()
-        .then(querySnapshot => {
-            querySnapshot.forEach(doc => {
-                const data = {
-                    'id': doc.id,
-                    'brand': doc.data().brand,
-                    'category': doc.data().category,
-                    'children_id': doc.data().children_id,
-                    'description': doc.data().description,
-                    'img_url': doc.data().img_url,
-                    'instock': doc.data().instock,
-                    'name': doc.data().name,
-                    'price': doc.data().price,
-                    'size': doc.data().size
-                }
-                this.products.push(data)
-            })
-        })
-    },
-    computed: {
-        
-        filteredClothes() {
-            let category = this.selectedCategory;
+  name: "children",
+  data() {
+    return {
+      products: [],
+      selectedCategory: "All",
+      search: ""
+    };
+  },
+  created() {
+    db.collection("children")
+      .orderBy("brand")
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          const data = {
+            id: doc.id,
+            brand: doc.data().brand,
+            category: doc.data().category,
+            children_id: doc.data().children_id,
+            description: doc.data().description,
+            img_url: doc.data().img_url,
+            instock: doc.data().instock,
+            name: doc.data().name,
+            price: doc.data().price,
+            size: doc.data().size,
+            rating: doc.data().rating
+          };
+          this.products.push(data);
+        });
+      });
+  },
+  computed: {
+    filteredClothes() {
+      let category = this.selectedCategory;
 
-            if(category === "All") {
-                
-            return this.products
-                .filter(product => {
-                    return product.name.toLowerCase().includes(this.search.toLowerCase())
-                })
-               
-
-        } else if (category === "Jackets") {
-            return this.products
-                .filter(product => {
-                    return product.name.toLowerCase().includes(this.search.toLowerCase())
-                })
-            
-                .filter(product => {
-                    return product.category === category;
-                })
-        }  else if (category === "Trousers") {
-            return this.products
-                .filter(product => {
-                    return product.name.toLowerCase().includes(this.search.toLowerCase())
-                })
-            
-                .filter(product => {
-                    return product.category === category;
-                })
-        }  else if (category === "Hats") {
-            return this.products
-                .filter(product => {
-                    return product.name.toLowerCase().includes(this.search.toLowerCase())
-                })
-            
-                .filter(product => {
-                    return product.category === category;
-                })
-        }
-
-        
-
-                
-
-        }
-
-
+      if (category === "All") {
+        return this.products.filter(product => {
+          return product.name.toLowerCase().includes(this.search.toLowerCase());
+        });
+      } else if (category === "Jackets") {
+        return this.products
+          .filter(product => {
+            return product.name
+              .toLowerCase()
+              .includes(this.search.toLowerCase());
+          })
+          .filter(product => {
+            return product.category === category;
+          });
+      } else if (category === "Trousers") {
+        return this.products
+          .filter(product => {
+            return product.name
+              .toLowerCase()
+              .includes(this.search.toLowerCase());
+          })
+          .filter(product => {
+            return product.category === category;
+          });
+      } else if (category === "Hats") {
+        return this.products
+          .filter(product => {
+            return product.name
+              .toLowerCase()
+              .includes(this.search.toLowerCase());
+          })
+          .filter(product => {
+            return product.category === category;
+          });
+      }
+    }
   }
+};
 
-}
+// var text = "";
+// var i;
+// for (i = 0; i < products.rating.length; i++) {
+//   text += products.rating[i] + "<br>";
+// }
+// document.getElementById("demo").innerHTML = text;
 </script>
 
+
 <style lang="scss" scoped>
-
-
-
-
-
-
-.card:hover {
-    -webkit-box-shadow: 6px 6px 0px -3px rgba(0,0,0,0.2);
-    -moz-box-shadow: 6px 6px 0px -3px rgba(0,0,0,0.2);
-    box-shadow: 6px 6px 0px -3px rgba(0,0,0,0.2);
+*, *::before, *::after {
+    box-sizing: border-box;
 }
+@import "./breakpoints.scss";
+@import "./functions.scss";
+@import "./variables.scss";
+
+.card-columns {
+    @include media-breakpoint-only(sm) {
+        column-count: 1;
+  }
+    @include media-breakpoint-only(md) {
+        column-count: 2;
+  }
+  @include media-breakpoint-only(lg) {
+        column-count: 3;
+  }
+  @include media-breakpoint-only(xl) {
+        column-count: 4;
+  }
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+    .select-css {
+      display: block;
+      font-size: 16px;
+      font-family: sans-serif;
+      font-weight: 700;
+      color: #444;
+      line-height: 1.3;
+      padding: .6em 1.4em .5em .8em;
+      width: 100%;
+      max-width: 100%; 
+      box-sizing: border-box;
+      margin: 0;
+      border: 1px solid #aaa;
+      box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+      border-radius: .5em;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: #fff;
+      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+      linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+      background-repeat: no-repeat, repeat;
+      background-position: right .7em top 50%, 0 0;
+      background-size: .65em auto, 100%;
+    }
+    .select-css::-ms-expand {
+      display: none;
+    }
+    .select-css:hover {
+      border-color: #888;
+    }
+    .select-css:focus {
+      border-color: #aaa;
+      box-shadow: 0 0 1px 1px rgba(59, 153, 252, .7);
+      box-shadow: 0 0 0 3px -moz-mac-focusring;
+      color: #222; 
+      outline: none;
+    }
+    .select-css option {
+      font-weight:normal;
+    }
+    input {
+	    outline: none;
+    }
+    input[type=search] {
+      -webkit-appearance: textfield;
+      box-sizing: content-box;
+      -webkit-box-sizing: content-box;
+      font-family: inherit;
+      font-size: 100%;
+    }
+    input::-webkit-search-decoration,
+    input::-webkit-search-cancel-button {
+      display: none; 
+    }
+    input[type=search] {
+      background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+      border: solid 1px #ccc;
+      padding: 9px 10px 9px 32px;
+      width: 55px;
+      -webkit-border-radius: 10em;
+      -moz-border-radius: 10em;
+      border-radius: 10em;
+      -webkit-transition: all .5s;
+      -moz-transition: all .5s;
+      transition: all .5s;
+    }
+    input[type=search]:focus {
+    	width: 220px;
+	    background-color: #fff;
+	    border-color: lightblue;
+      -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+	    -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    	box-shadow: 0 0 5px rgba(109,207,246,.5);
+    }
+    input:-moz-placeholder {
+	    color: #999;
+    }
+    input::-webkit-input-placeholder {
+	    color: #999;
+    }
+}
+
+.card {
+    .card-img-top {
+        width: 100%;
+        height: auto;
+    }
+
+    .card:hover {
+        border: 1px solid lightblue;
+        //   -webkit-box-shadow: 6px 6px 6px -3px rgba(0, 0, 0, 0.2);
+        //   -moz-box-shadow: 6px 6px 6px -3px rgba(0, 0, 0, 0.2);
+        //   box-shadow: 6px 6px 6px -3px rgba(0, 0, 0, 0.2);
+    }
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        h6 {
+            font-size: .75em;
+            padding: 5px;
+        }
+        h6:nth-child(3) {
+          text-transform: uppercase;
+        }
+    }
+    .card-footer {
+      display: flex;
+      flex-direction: row;
+        input[type=number] {
+            padding: 5px; 
+            border: 1px solid lightblue; 
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+            width: 40px;
+            font-size: .75em;
+        }
+        img {
+            width: 1.2em;
+            height: 1.2em;
+        }
+    }  
+}
+
+
+//SELECT CSS
+
+
+
+//EXPANDABLE SEARCH
+
+
+  @media (max-width: 600px) {
+    .search-container {
+      display: grid;
+      grid-column: 1fr;
+      grid-gap: 30px;
+    } 
+  }
 
 </style>
