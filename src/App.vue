@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="bg-light">
     <div id="nav">
       <TopNav />
       <NavBar />
@@ -33,4 +33,5 @@ export default {
 body {
         font-family: 'Raleway', sans-serif;
 }
+
 </style>
