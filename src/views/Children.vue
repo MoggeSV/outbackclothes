@@ -37,7 +37,7 @@
             <!-- <p class="card-text">{{product.description}}</p> -->
             <!-- <p>{{product.rating}}</p> -->
           </div>
-          <div class="card-footer">
+          <div class="card-footer justify-content-center">
             <input type="number" class="form-control mr-1" value="1" min="0" />
             <router-link to="/" class="btn back-color btn-sm  text-light">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
           </div>
