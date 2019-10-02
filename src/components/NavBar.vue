@@ -1,6 +1,5 @@
 <template>
   <div class="">
-    
     <!-- Menu for large screens -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white d-none d-lg-block">
       <div class="container">
@@ -51,7 +50,7 @@
         </div>
       </div>
       <transition name="fade">
-        <SmallCart @clicked="closeSmallCart" v-if="showingCart === true" class="small-cart"/>
+        <SmallCart @clicked="closeSmallCart()" v-click-outside="closeSmallCart" v-if="showingCart === true" class="small-cart"/>
       </transition>
       </div>
     </nav>
@@ -99,7 +98,13 @@
 </template>
  
  <script>
+
 import SmallCart from '@/components/SmallCart'
+import Vue from 'vue'
+import vClickOutside from 'v-click-outside'
+
+Vue.use(vClickOutside)
+
 
 export default {
   name: "NavBar",
@@ -114,7 +119,6 @@ export default {
   methods: {
     closeSmallCart(value) {
       this.showingCart = false;
-      console.log(this.showingCart);
     }
   }
 };
