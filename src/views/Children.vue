@@ -9,20 +9,22 @@
             <option value="Trousers">Byxor</option>
             <option value="Hats">Mössor</option>
           </select>
-          <!-- <label class="mr-3 mt-2">Välj varumärke</label>
+
+          <label class="mr-3 mt-2">Välj varumärke</label>
           <select class="select-css mr-5" v-model="selectedBrand">
             <option value="All">Alla</option>
-            <option value="Adidas">Adidas</option>
-            <option value="Nike">Nike</option>
             <option value="Abercrombie & Fitch">Abercrombie & Fitch</option>
+            <option value="Adidas">Adidas</option>
             <option value="Angel & Rocket">Angel & Rocket</option>
-            <option value="Kappa">Kappa</option>
-            <option value="Haglöfs">Haglöfs</option>
-            <option value="Under Armour">Under Armour</option>
-            <option value="Peak Performance">Peak Performance</option>
             <option value="Burton">Burton</option>
-          </select> -->
-	      <input type="search" v-model="search" placeholder="Search">
+            <option value="Haglöfs">Haglöfs</option>
+            <option value="Kappa">Kappa</option>
+            <option value="Nike">Nike</option>
+            <option value="Peak Performance">Peak Performance</option>
+            <option value="Under Armour">Under Armour</option>
+          </select>
+	      <!-- <input type="search" v-model="search" placeholder="Search"> -->
+
     </div>
     <div class="card-columns">
       <div v-for="product in filteredClothes" v-bind:key="product.id">
@@ -31,7 +33,9 @@
           <!-- <img v-bind:src="product.img_url" class="card-img-top" /> -->
           <div class="card-body">
             <!-- <small>Avdelning: <strong>{{product.category}}</strong></small> -->
-            <h5 class="card-title badge badge-pill back-color text-light">{{product.price}} kr</h5>
+
+            <h5 class="card-title badge badge-pill badge-bg-color">{{product.price}} kr</h5>
+
             <h6 class="card-title lead">{{product.name}}</h6>
             <h6 class="card-title"><strong>{{product.brand}}</strong></h6>
             <!-- <p class="card-text">{{product.description}}</p> -->
@@ -39,7 +43,9 @@
           </div>
           <div class="card-footer justify-content-center">
             <input type="number" class="form-control mr-1" value="1" min="0" />
-            <router-link to="/" class="btn back-color-button btn-sm  text-light">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
+
+            <router-link to="/" class="btn back-color-button btn-sm">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
+
           </div>
         </div>
       </div>
@@ -56,8 +62,9 @@ export default {
     return {
       products: [],
       selectedCategory: "All",
-      //selectedBrand: "All",
-      search: ""
+
+      selectedBrand: "All"
+
     };
   },
   created() {
@@ -84,48 +91,32 @@ export default {
       });
   },
   computed: {
-    filteredClothes() {
+filteredClothes() {
       let category = this.selectedCategory;
       let brand = this.selectedBrand;
 
-      if (category === "All") {
-        return this.products.filter(product => {
-          return product.name.toLowerCase().includes(this.search.toLowerCase());
-        });
-      } else if (category === "Jackets") {
-        return this.products
-          .filter(product => {
-            return product.name
-              .toLowerCase()
-              .includes(this.search.toLowerCase());
+        if (category === "All" & brand === "All") {
+          return this.products
+          } else if (category === "All" && brand !== "All") {
+              return this.products.filter(product => {
+          return product.brand === brand;
+          })}
+          else if (category !== "All" && brand === "All") {
+              return this.products.filter(product => {
+          return product.category === category;
+          })}
+          else if (category !== "All" && brand !== "All") {
+              return this.products.filter(product => {
+          return product.category === category;
+          }).filter(product => {
+          return product.brand === brand;
           })
-          .filter(product => {
-            return product.category === category;
-          });
-      } else if (category === "Trousers") {
-        return this.products
-          .filter(product => {
-            return product.name
-              .toLowerCase()
-              .includes(this.search.toLowerCase());
-          })
-          .filter(product => {
-            return product.category === category;
-          });
-      } else if (category === "Hats") {
-        return this.products
-          .filter(product => {
-            return product.name
-              .toLowerCase()
-              .includes(this.search.toLowerCase());
-          })
-          .filter(product => {
-            return product.category === category;
-          });
-      }
-    }
-  }
-};
+
+          }
+    }//filteredClothes end
+  }//comuted end
+};//export default end
+
 </script>
 
 <style lang="scss" scoped>
@@ -260,10 +251,15 @@ export default {
         h6:nth-child(3) {
           text-transform: uppercase;
         }
+        .badge-bg-color {
+          background-color: #7295AD;
+          color: white;
+        }
     }
     .card-footer {
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
         input[type=number] {
             padding: 5px; 
             border: 1px solid lightblue; 
@@ -276,14 +272,20 @@ export default {
             width: 1.2em;
             height: 1.2em;
         }
+        .back-color-button {
+          background-color: #3A4C58;
+          color: white;
+        }
+        .back-color-button:hover {
+          filter: brightness(120%)
+        }
     }  
 }
-.back-color {
-  background-color: #7295AD;
-}
+
 .back-color-button{
   background-color: #3A4C58;
 }
+
 
   @media (max-width: 600px) {
     .search-container {
