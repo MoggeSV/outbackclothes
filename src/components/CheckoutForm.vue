@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form class="container">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="firstname">Förnamn</label>
@@ -19,20 +19,11 @@
                     <label for="city">Stad</label>
                     <input type="text" class="form-control" id="city">
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-6">
                 <label for="zip">Postkod</label>
                 <input type="text" class="form-control" id="zip">
             </div>
         </div>
-        <div class="form-group">
-            <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-                Check me out
-            </label>
-        </div>
-    </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
     </form>
 </template>
 
@@ -42,8 +33,6 @@ export default {
 }
 </script>
 
-<style>
-    form {
-        padding: 33px;
-    }
+<style scoped>
+
 </style>

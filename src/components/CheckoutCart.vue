@@ -3,57 +3,123 @@
         <div id="checkout-products">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-2 d-flex justify-content-center">
-                            <img src="../assets/images/men/men_1.jpg" class="product-image" alt="">
-                        </div>
-                        <div class="col-10">
-                            <div class="row d-inline-flex w-100">
-                                <span class="product-brand">Lyle & Scott</span>
-                                <span class="ml-auto">Antal: 1</span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4 col-sm-3 col-md-2 col-lg-2">
+                                <img src="../assets/images/men/men_1.jpg" class="product-image" alt="">
                             </div>
-                            <div class="row d-inline-flex w-100">
-                                <span class="product-name">Höstjacka</span>
-                                <span class="ml-auto smaller-text">1600 kr</span>
-                            </div>
-                            <div class="row d-inline-flex w-100">
-                                <span class="mt-2 smaller-text">Storlek: M</span>
+                            <div class="col-8 col-sm-9 col-md-10 col-lg-10">
+                                <div class="container">
+                                    <div class="row d-inline-flex w-100">
+                                        <span class="product-brand">Lyle & Scott</span>
+                                        <span class="ml-auto">Antal: 1</span>
+                                    </div>
+                                    <div class="row d-inline-flex w-100">
+                                        <span class="product-name">Höstjacka</span>
+                                        <span class="ml-auto smaller-text">1600 kr</span>
+                                    </div>
+                                    <div class="row d-inline-flex w-100">
+                                        <span class="mt-2 smaller-text">Storlek: M</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </li>
                 <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-2 d-flex justify-content-center">
-                            <img src="../assets/images/men/men_7.jpg" class="product-image" alt="">
-                        </div>
-                        <div class="col-10">
-                            <div class="row d-inline-flex w-100">
-                                <span class="product-brand">Tiger of sweden</span>
-                                <span class="ml-auto">Antal: 1</span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4 col-sm-3 col-md-2 col-lg-2">
+                                <img src="../assets/images/men/men_7.jpg" class="product-image" alt="">
                             </div>
-                            <div class="row d-inline-flex w-100">
-                                <span class="product-name">Mössa</span>
-                                <span class="ml-auto smaller-text">399 kr</span>
-                            </div>
-                            <div class="row d-inline-flex w-100">
-                                <span class="mt-2 smaller-text">Storlek: One size</span>
+                            <div class="col-8 col-sm-9 col-md-10 col-lg-10">
+                                <div class="container">
+                                    <div class="row d-inline-flex w-100">
+                                        <span class="product-brand">Tiger of sweden</span>
+                                        <span class="ml-auto">Antal: 1</span>
+                                    </div>
+                                    <div class="row d-inline-flex w-100">
+                                        <span class="product-name">Mössa</span>
+                                        <span class="ml-auto smaller-text">399 kr</span>
+                                    </div>
+                                    <div class="row d-inline-flex w-100">
+                                        <span class="mt-2 smaller-text">Storlek: One size</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
-        <div id="checkout-price" class="shadow-inset-price">
+        <!-- Price and promo code for larger screens -->
+        <div id="checkout-price" class="container shadow-inset-price d-none d-md-block">
             <div class="row mt-1">
-                <div class="col-6 inline-flex justify-content-center">
-                    <div class="row">
-                        <h3>Har du en rabattkod?</h3>
+                <div class="col-6 inline-flex justify-content-center"> <!-- hit -->
+                    <div class="container">
+                        <div class="row p-3">
+                            <h3>Har du en rabattkod?</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Ange den här isåfall :)" aria-label="Ange koden här" aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary code-button" type="button" id="button-addon2">Aktivera</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col" style="padding: 0px;">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Ange den här isåfall :)" aria-label="Ange koden här" aria-describedby="button-addon2">
+                </div>
+                <div class="col-5 offset-md-1 pt-2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <span class="w-100" style="text-align: justify;">Deltotal</span>
+                            </div>
+                            <div class="col">
+                                <span>4798 kr</span>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center custom-muted-text">
+                            <div class="col">
+                                <span class="w-100 font-weight-normal" style="text-align: justify;">Moms</span>
+                            </div>
+                            <div class="col">
+                                <span>0 kr</span>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center custom-muted-text border-bottom-faded mb-2">
+                            <div class="col">
+                                <span class="w-100" style="text-align: justify;">Frakt</span>
+                            </div>
+                            <div class="col">
+                                <span class="">0 kr</span>
+                            </div>   
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col">
+                                <span class="w-100 font-weight-bold">Totalsumma</span>
+                            </div>
+                            <div class="col"><span class="font-weight-bold">4798 kr</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Price and promo code for larger screens END -->
+        <!-- Price and promo code for smaller screens -->
+        <div id="checkout-price" class="container shadow-inset-price d-md-none">
+            <div class="row mt-1">
+                <div class="col inline-flex justify-content-center">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center mt-2 mb-2">
+                            <h3>Har du en rabattkod?</h3>
+                        </div>
+                        <div class="row">
+                            <div class="input-group mb-3 p-3">
+                                <input type="text" class="form-control" placeholder="Ange den här" aria-label="Ange koden här" aria-describedby="button-addon2">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary code-button" type="button" id="button-addon2">Aktivera</button>
                                 </div>
@@ -61,45 +127,53 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3 offset-md-3">
-                    <div class="row">
-                        <div class="col">
-                            <span class="w-100" style="text-align: justify;">Deltotal</span>
-                        </div>
-                        <div class="col">
-                            <span>4798 kr</span>
-                        </div>
+            </div>
+            <div class="container mt-1" style="font-size: 1.1em">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-4 d-flex justify-content-start">
+                        Deltotal:
                     </div>
-                    <!--  d-flex justify-content-end mr-4 -->
-                    <div class="row d-flex justify-content-center custom-muted-text">
-                        <div class="col">
-                            <span class="w-100 font-weight-normal" style="text-align: justify;">Moms</span>
-                        </div>
-                        <div class="col">
-                            <span>0 kr</span>
-                        </div>
+                    <div class="col-4 d-flex justify-content-end">
+                        3894 kr
                     </div>
-                    <div class="row d-flex justify-content-center custom-muted-text border-bottom-faded mb-2">
-                        <div class="col">
-                            <span class="w-100" style="text-align: justify;">Frakt</span>
-                        </div>
-                        <div class="col">
-                            <span class="">0 kr</span>
-                        </div>
-                        
+                </div>
+                <div class="row d-flex justify-content-between custom-muted-text">
+                    <div class="col-4 d-flex justify-content-start">
+                        Frakt:
                     </div>
-                    <div class="row d-flex justify-content-center">
-                        <div class="col">
-                            <span class="w-100 font-weight-bold">Totalsumma</span>
-                        </div>
-                        <div class="col"><span class="font-weight-bold">4798 kr</span></div>
+                    <div class="col-4 d-flex justify-content-end">
+                        0 kr
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-between custom-muted-text  border-bottom-faded">
+                    <div class="col-4 d-flex justify-content-start">
+                        Rabattkod:
+                    </div>
+                    <div class="col-4 d-flex justify-content-end">
+                        0 kr
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-between font-weight-bold">
+                    <div class="col-4 d-flex justify-content-start">
+                        Totalsumma:
+                    </div>
+                    <div class="col-4 d-flex justify-content-end">
+                        3894 kr
                     </div>
                 </div>
             </div>
         </div>
-        <div id="checkout-form" class="row mt-5">
-            <div class="col-6">
-                <CheckoutForm />
+        <!-- Price and promo code for small screens END -->
+
+        <div id="checkout-form" class="container mt-5">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-first">
+                    <h3 class="p-3">Handla som gäst</h3>
+                    <CheckoutForm />
+                </div>
+                <div class="col-md-6">
+                    <Pay />
+                </div>
             </div>
         </div>
     </div>
@@ -107,16 +181,22 @@
 
 <script>
 import CheckoutForm from './CheckoutForm';
+import Pay from './Pay'
 
 export default {
     name: "CheckoutCart",
     components: {
-        CheckoutForm
+        CheckoutForm,
+        Pay
     }
 }
 </script>
 
 <style>
+    body { 
+        overflow-x: hidden;
+    }
+
     #checkout-cart {
         -webkit-box-shadow: 0px 0px 19px -6px rgba(0,0,0,0.30);
         -moz-box-shadow: 0px 0px 19px -6px rgba(0,0,0,0.30);
@@ -135,7 +215,7 @@ export default {
     }
 
     .product-image {
-        max-height: 130px;
+        max-height: 100px;
     }
 
     .product-name {
@@ -150,7 +230,6 @@ export default {
     
     #checkout-price {
         padding: 10px;
-        padding-left: 48px;
         background-color: #7295AD;
         color: white;
     }
@@ -173,7 +252,7 @@ export default {
     }
 
     .border-bottom-faded {
-        border-bottom: 1px solid rgba(255,255,255, 0.3);
+        border-bottom: 1px solid rgb(225, 225, 225);
     }
 
     .code-button {
@@ -182,12 +261,10 @@ export default {
     }
 
     .custom-card{
-        border: none;
-        
+        border: none; 
     }
 
     .custom-card img{
         width: 100%;
     }
-
 </style>

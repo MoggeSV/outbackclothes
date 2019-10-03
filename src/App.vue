@@ -1,16 +1,12 @@
 <template>
-  <div id="app">
+  <div id="app" class="bg-light">
     <div id="nav">
       <TopNav />
       <NavBar />
-      
-
     </div>
     <router-view />
     <div id="footer">
       <Footer />
-
-
     </div>
   </div>
 </template>
@@ -33,4 +29,5 @@ export default {
 body {
         font-family: 'Raleway', sans-serif;
 }
+
 </style>
