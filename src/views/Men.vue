@@ -90,15 +90,20 @@ export default {
 
       if (category === "All" & brand === "All") {
           return this.products
-          } else {
-              return this.products
-            .filter(product => {
-              return product.category === category;
-            });
-              return this.products
-            .filter(product => {
-              return product.brand === brand;
-            });
+          } else if (category === "All" && brand !== "All") {
+              return this.products.filter(product => {
+          return product.brand === brand;
+          })}
+          else if (category !== "All" && brand === "All") {
+              return this.products.filter(product => {
+          return product.category === category;
+          })}
+          else if (category !== "All" && brand !== "All") {
+              return this.products.filter(product => {
+          return product.category === category;
+          }).filter(product => {
+          return product.brand === brand;
+          })
           }
 
       // if (category === "All") {
