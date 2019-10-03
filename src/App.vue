@@ -29,4 +29,5 @@ export default {
 body {
         font-family: 'Raleway', sans-serif;
 }
+
 </style>
