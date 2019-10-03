@@ -26,8 +26,8 @@
     </div>
     <div class="card-columns">
       <div v-for="product in filteredClothes" v-bind:key="product.id">
-        <div class="card text-center">
-          <img :src="require(`@/assets/images/men/${product.img_url}`)" class="card-img-top p-1 w-75 h-75" />
+        <div class="card text-center ">
+          <img :src="require(`@/assets/images/men/${product.img_url}`)" class="card-img-top p-1" />
           <!-- <img v-bind:src="product.img_url" class="card-img-top" /> -->
           <div class="card-body">
             <!-- <small>Avdelning: <strong>{{product.category}}</strong></small> -->
@@ -39,7 +39,7 @@
           </div>
           <div class="card-footer justify-content-center">
             <input type="number" class="form-control mr-1" value="1" min="0" />
-            <router-link to="/" class="btn back-color-button btn-sm">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
+            <router-link to="/" class="btn back-color-button">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
           </div>
         </div>
       </div>
@@ -286,7 +286,7 @@ export default {
       input[type=search]:focus {
         width: 280px;
       }
-    } 
+    }
   }
 
 </style>

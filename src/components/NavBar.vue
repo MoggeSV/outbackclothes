@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <!-- Menu for large screens -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white d-none d-lg-block">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white d-none d-lg-block py-3">
       <div class="container">
       <button
         class="navbar-toggler"
