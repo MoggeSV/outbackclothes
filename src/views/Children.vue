@@ -39,7 +39,7 @@
           </div>
           <div class="card-footer justify-content-center">
             <input type="number" class="form-control mr-1" value="1" min="0" />
-            <router-link to="/" class="btn back-color btn-sm  text-light">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
+            <router-link to="/" class="btn back-color-button btn-sm  text-light">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
           </div>
         </div>
       </div>
@@ -280,6 +280,9 @@ export default {
 }
 .back-color {
   background-color: #7295AD;
+}
+.back-color-button{
+  background-color: #3A4C58;
 }
 
   @media (max-width: 600px) {
