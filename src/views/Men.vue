@@ -19,7 +19,7 @@
             <option value="Antony Morato">Antony Morato</option>
             <option value="Base London">Base London</option>
             <option value="Gant">Gant</option>
-            <option value="American Eagle">Peak Performance</option>
+            <option value="American Eagle">American Eagle</option>
             <option value="Fjällräven">Fjällräven</option>
           </select>
 	      <!-- <input type="search" v-model="search" placeholder="Search"> -->
@@ -31,15 +31,15 @@
           <!-- <img v-bind:src="product.img_url" class="card-img-top" /> -->
           <div class="card-body">
             <!-- <small>Avdelning: <strong>{{product.category}}</strong></small> -->
-            <h5 class="card-title badge badge-pill badge-info">{{product.price}} kr</h5>
+            <h5 class="card-title badge badge-pill badge-bg-color">{{product.price}} kr</h5>
             <h6 class="card-title lead">{{product.name}}</h6>
             <h6 class="card-title"><strong>{{product.brand}}</strong></h6>
             <!-- <p class="card-text">{{product.description}}</p> -->
             <!-- <p>{{product.rating}}</p> -->
           </div>
-          <div class="card-footer">
+          <div class="card-footer justify-content-center">
             <input type="number" class="form-control mr-1" value="1" min="0" />
-            <router-link to="/" class="btn btn-dark btn-sm">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
+            <router-link to="/" class="btn back-color-button btn-sm">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
           </div>
         </div>
       </div>
@@ -51,13 +51,12 @@
 import db from "@/components/firebaseInit";
 
 export default {
-  name: "children",
+  name: "men",
   data() {
     return {
       products: [],
       selectedCategory: "All",
-      selectedBrand: "All",
-      search: ""
+      selectedBrand: "All"
     };
   },
   created() {
@@ -88,7 +87,7 @@ export default {
       let category = this.selectedCategory;
       let brand = this.selectedBrand;
 
-      if (category === "All" & brand === "All") {
+        if (category === "All" & brand === "All") {
           return this.products
           } else if (category === "All" && brand !== "All") {
               return this.products.filter(product => {
@@ -105,44 +104,8 @@ export default {
           return product.brand === brand;
           })
           }
-
-      // if (category === "All") {
-      //   return this.products.filter(product => {
-      //     return product.name.toLowerCase().includes(this.search.toLowerCase());
-      //   });
-      // } else if (category === "Jackets") {
-      //   return this.products
-      //     .filter(product => {
-      //       return product.name
-      //         .toLowerCase()
-      //         .includes(this.search.toLowerCase());
-      //     })
-      //     .filter(product => {
-      //       return product.category === category;
-      //     });
-      // } else if (category === "Boots") {
-      //   return this.products
-      //     .filter(product => {
-      //       return product.name
-      //         .toLowerCase()
-      //         .includes(this.search.toLowerCase());
-      //     })
-      //     .filter(product => {
-      //       return product.category === category;
-      //     });
-      // } else if (category === "Hats") {
-      //   return this.products
-      //     .filter(product => {
-      //       return product.name
-      //         .toLowerCase()
-      //         .includes(this.search.toLowerCase());
-      //     })
-      //     .filter(product => {
-      //       return product.category === category;
-      //     });
-      // }
     }//filteredClothes end
-  }//comuted end
+  }//computed end
 };//export default end
 </script>
 
@@ -278,6 +241,10 @@ export default {
         h6:nth-child(3) {
           text-transform: uppercase;
         }
+        .badge-bg-color {
+          background-color: #7295AD;
+          color: white;
+        }
     }
     .card-footer {
       display: flex;
@@ -294,6 +261,13 @@ export default {
         img {
             width: 1.2em;
             height: 1.2em;
+        }
+        .back-color-button {
+          background-color: #3A4C58;
+          color: white;
+        }
+        .back-color-button:hover {
+          filter: brightness(120%)
         }
     }  
 }

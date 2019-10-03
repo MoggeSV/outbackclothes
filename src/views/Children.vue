@@ -1,14 +1,28 @@
 <template>
-  <div class="container">
+  <div class="container bg-light">
+    <div id="image "></div>
     <div class="search-container my-5">
         <label class="mr-3 mt-2">Välj kategori</label>
-          <select class="select-css w-25 mr-5" v-model="selectedCategory">
+          <select class="select-css mr-5" v-model="selectedCategory">
             <option value="All">Alla</option>
             <option value="Jackets">Jackor</option>
             <option value="Trousers">Byxor</option>
             <option value="Hats">Mössor</option>
           </select>
-	      <input type="search" v-model="search" placeholder="Search">
+          <label class="mr-3 mt-2">Välj varumärke</label>
+          <select class="select-css mr-5" v-model="selectedBrand">
+            <option value="All">Alla</option>
+            <option value="Abercrombie & Fitch">Abercrombie & Fitch</option>
+            <option value="Adidas">Adidas</option>
+            <option value="Angel & Rocket">Angel & Rocket</option>
+            <option value="Burton">Burton</option>
+            <option value="Haglöfs">Haglöfs</option>
+            <option value="Kappa">Kappa</option>
+            <option value="Nike">Nike</option>
+            <option value="Peak Performance">Peak Performance</option>
+            <option value="Under Armour">Under Armour</option>
+          </select>
+	      <!-- <input type="search" v-model="search" placeholder="Search"> -->
     </div>
     <div class="card-columns">
       <div v-for="product in filteredClothes" v-bind:key="product.id">
@@ -17,15 +31,15 @@
           <!-- <img v-bind:src="product.img_url" class="card-img-top" /> -->
           <div class="card-body">
             <!-- <small>Avdelning: <strong>{{product.category}}</strong></small> -->
-            <h5 class="card-title badge badge-pill badge-info">{{product.price}} kr</h5>
+            <h5 class="card-title badge badge-pill badge-bg-color">{{product.price}} kr</h5>
             <h6 class="card-title lead">{{product.name}}</h6>
             <h6 class="card-title"><strong>{{product.brand}}</strong></h6>
             <!-- <p class="card-text">{{product.description}}</p> -->
-            <p>{{product.rating}}</p>
+            <!-- <p>{{product.rating}}</p> -->
           </div>
-          <div class="card-footer">
+          <div class="card-footer justify-content-center">
             <input type="number" class="form-control mr-1" value="1" min="0" />
-            <router-link to="/" class="btn btn-dark btn-sm">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
+            <router-link to="/" class="btn back-color-button btn-sm">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
           </div>
         </div>
       </div>
@@ -42,7 +56,7 @@ export default {
     return {
       products: [],
       selectedCategory: "All",
-      search: ""
+      selectedBrand: "All"
     };
   },
   created() {
@@ -69,58 +83,34 @@ export default {
       });
   },
   computed: {
-    filteredClothes() {
+filteredClothes() {
       let category = this.selectedCategory;
+      let brand = this.selectedBrand;
 
-      if (category === "All") {
-        return this.products.filter(product => {
-          return product.name.toLowerCase().includes(this.search.toLowerCase());
-        });
-      } else if (category === "Jackets") {
-        return this.products
-          .filter(product => {
-            return product.name
-              .toLowerCase()
-              .includes(this.search.toLowerCase());
+        if (category === "All" & brand === "All") {
+          return this.products
+          } else if (category === "All" && brand !== "All") {
+              return this.products.filter(product => {
+          return product.brand === brand;
+          })}
+          else if (category !== "All" && brand === "All") {
+              return this.products.filter(product => {
+          return product.category === category;
+          })}
+          else if (category !== "All" && brand !== "All") {
+              return this.products.filter(product => {
+          return product.category === category;
+          }).filter(product => {
+          return product.brand === brand;
           })
-          .filter(product => {
-            return product.category === category;
-          });
-      } else if (category === "Trousers") {
-        return this.products
-          .filter(product => {
-            return product.name
-              .toLowerCase()
-              .includes(this.search.toLowerCase());
-          })
-          .filter(product => {
-            return product.category === category;
-          });
-      } else if (category === "Hats") {
-        return this.products
-          .filter(product => {
-            return product.name
-              .toLowerCase()
-              .includes(this.search.toLowerCase());
-          })
-          .filter(product => {
-            return product.category === category;
-          });
-      }
-    }
-  }
-};
-
-// var text = "";
-// var i;
-// for (i = 0; i < products.rating.length; i++) {
-//   text += products.rating[i] + "<br>";
-// }
-// document.getElementById("demo").innerHTML = text;
+          }
+    }//filteredClothes end
+  }//comuted end
+};//export default end
 </script>
 
-
 <style lang="scss" scoped>
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -154,7 +144,7 @@ export default {
       color: #444;
       line-height: 1.3;
       padding: .6em 1.4em .5em .8em;
-      width: 100%;
+      width: 25%;
       max-width: 100%; 
       box-sizing: border-box;
       margin: 0;
@@ -205,7 +195,7 @@ export default {
       background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
       border: solid 1px #ccc;
       padding: 9px 10px 9px 32px;
-      width: 55px;
+      width: 200px;
       -webkit-border-radius: 10em;
       -moz-border-radius: 10em;
       border-radius: 10em;
@@ -251,10 +241,15 @@ export default {
         h6:nth-child(3) {
           text-transform: uppercase;
         }
+        .badge-bg-color {
+          background-color: #7295AD;
+          color: white;
+        }
     }
     .card-footer {
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
         input[type=number] {
             padding: 5px; 
             border: 1px solid lightblue; 
@@ -267,22 +262,30 @@ export default {
             width: 1.2em;
             height: 1.2em;
         }
+        .back-color-button {
+          background-color: #3A4C58;
+          color: white;
+        }
+        .back-color-button:hover {
+          filter: brightness(120%)
+        }
     }  
 }
-
-
-//SELECT CSS
-
-
-
-//EXPANDABLE SEARCH
-
 
   @media (max-width: 600px) {
     .search-container {
       display: grid;
       grid-column: 1fr;
       grid-gap: 30px;
+      .select-css {
+        width: 100%;
+      }
+      input[type=search] {
+        width: 200px;
+      }
+      input[type=search]:focus {
+        width: 280px;
+      }
     } 
   }
 
