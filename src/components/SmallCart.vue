@@ -6,6 +6,7 @@
                     <i class="fas fa-mountain"></i>
                 </span>
                 Varukorg
+                {{ message }}
             </h6>
         </div>
         <div id="small-cart-content">
@@ -76,12 +77,20 @@
 </template>
 
 <script>
+import { store } from '../store/store';
+import Vue from 'vue';
+import Vuex from 'vuex';
 
 export default {
     name: "SmallCart",
     methods: {
         closeSmallCart:function ( event ) {
             this.$emit('clicked', false);
+        }
+    },
+    computed: {
+        message() {
+            return store.getters.message;
         }
     }
 }
