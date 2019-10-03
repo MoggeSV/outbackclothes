@@ -67,7 +67,7 @@
             <div id="small-cart-checkout" class="row mt-2" v-on:click="closeSmallCart">
                 <div class="col d-flex justify-content-end">
                     <router-link to="/checkout" class="btn checkout-btn">
-                        <span @click.stop="closeSmallCart()"><i class="far fa-credit-card"></i>Gå vidare</span>
+                        <span @click.stop="closeSmallCart()"><i class="far fa-credit-card"></i> Gå vidare</span>
                     </router-link>
                 </div>
             </div>
