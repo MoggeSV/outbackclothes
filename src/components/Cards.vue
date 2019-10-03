@@ -109,7 +109,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
 export default {};
 $(document).ready(function() {
   $(".carousel").carousel({
@@ -117,37 +116,6 @@ $(document).ready(function() {
     pause: 'hover'
   });
 });
-=======
-import {
-  mdbMultiCarousel,
-  mdbCarouselItem,
-  mdbContainer,
-  mdbRow,
-  mdbCol,
-  mdbCard,
-  mdbCardImage,
-  mdbCardBody,
-  mdbCardTitle,
-  mdbCardText,
-  mdbBtn
-} from "mdbvue";
-export default {
-  name: "Cards",
-  components: {
-    mdbMultiCarousel,
-    mdbCarouselItem,
-    mdbContainer,
-    mdbRow,
-    mdbCol,
-    mdbCard,
-    mdbCardImage,
-    mdbCardBody,
-    mdbCardTitle,
-    mdbCardText,
-    mdbBtn
-  }
-};
->>>>>>> master
 </script>
 
 <style>
