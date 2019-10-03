@@ -1,7 +1,8 @@
 <template>
-  <div>
-    <!-- För stora skärmar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white d-none d-lg-block">
+  <div class="">
+    <!-- Menu for large screens -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white d-none d-lg-block py-3">
+      <div class="container">
       <button
         class="navbar-toggler"
         type="button"
@@ -14,10 +15,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="col d-flex justify-content-center">
+        <div class="col d-flex justify-content-left">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <router-link to="/men" class="nav-link border-end">MAN</router-link>
+              <router-link to="/men" class="nav-link border-end custom-left-padding">MAN</router-link>
             </li>
             <li class="nav-item">
               <router-link to="/woman" class="nav-link border-end">KVINNA</router-link>
@@ -33,31 +34,33 @@
             <span>OutbackClothes</span>
           </router-link>
         </div>
-        <div class="col d-flex justify-content-center">
-          <ul class="navbar-nav">
+        <div class="col d-flex justify-content-end">
+          <ul class="navbar-nav custom-right-padding">
             <li class="nav-item">
               <router-link to="/" class="nav-link">
                 <i class="far fa-user-circle"></i>
               </router-link>
             </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-shopping-bag" v-on:click="showingCart = !showingCart">
-                </i>
-                </a>
+            <li class="nav-item" v-on:click="showingCart = !showingCart">
+              <span class="nav-link" href="#">
+                  <i class="fas fa-shopping-bag"></i>
+              </span>
             </li>
           </ul>
         </div>
       </div>
-      <SmallCart v-if="showingCart === true" class="small-cart"/>
+      <transition name="fade">
+        <SmallCart @clicked="closeSmallCart()" v-click-outside="closeSmallCart" v-if="showingCart === true" class="small-cart"/>
+      </transition>
+      </div>
     </nav>
-    <!-- Minde än LG -->
+    <!-- Menu for screens smaller than large -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white d-lg-none">
-        <router-link to="/" class="navbar-brand mx-auto">
-            <img src="@/assets/images/oclogo.png" class="logo" />
-            <span>OutbackClothes</span>
-        </router-link>
+      <router-link to="/" class="navbar-brand mx-auto">
+          <img src="@/assets/images/oclogo.png" class="logo" />
+          <span>OutbackClothes</span>
+      </router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -82,12 +85,11 @@
           <li class="nav-item">
             <router-link to="/children" class="nav-link">Barn</router-link>
           </li>
-        <li class="nav-item">
+          <li class="nav-item">
             <router-link to="/profile" class="nav-link"><i class="far fa-user-circle"></i> Profil</router-link>
-          </li>
-        <li class="nav-item">
+            </li>
+          <li class="nav-item">
             <router-link to="/checkout" class="nav-link"><i class="fas fa-shopping-bag"></i>  Varukorg </router-link>
-            
         </li>
         </ul>
       </div>
@@ -96,7 +98,13 @@
 </template>
  
  <script>
+
 import SmallCart from '@/components/SmallCart'
+import Vue from 'vue'
+import vClickOutside from 'v-click-outside'
+
+Vue.use(vClickOutside)
+
 
 export default {
   name: "NavBar",
@@ -106,6 +114,11 @@ export default {
   data: function() {
     return {
       showingCart: false
+    }
+  },
+  methods: {
+    closeSmallCart(value) {
+      this.showingCart = false;
     }
   }
 };
@@ -139,6 +152,27 @@ export default {
 }
 
 span {
-    font-weight: 100;
+  font-weight: 100;
 }
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.custom-left-padding {
+  margin-left: -23px;
+}
+
+.custom-right-padding {
+   margin-right: -23px;
+}
+
+.nav-item {
+  cursor: pointer;
+}
+
 </style>

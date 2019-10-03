@@ -13,11 +13,11 @@
                 <div class="col-12 col-md-6">
                   <div class="card-transparent white darken-1 text-left">
                     <div class="card-content">
-                      <span class="card-title text-uppercase display-1 font-weight-bolder">Winter 2020</span>
-                      <p class="font-weight-bold">The winter collection 2020 is now in stock.</p>
+                      <span class="card-title text-uppercase display-1 font-weight-bolder">Vinter 2020</span>
+                      <p class="font-weight-bold">Vinterkollektionen för 2020 är nu här!</p>
                     </div>
                   <div class="card-action">
-                    <router-link to="/" class="btn btn-btn">Add to cart</router-link>
+                    <router-link to="/" class="btn btn-btn">Läs mer</router-link>
                   </div>
                 </div>
               </div>

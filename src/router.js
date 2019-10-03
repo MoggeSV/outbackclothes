@@ -7,6 +7,7 @@ import Men from './views/Men.vue'
 import Woman from './views/Woman.vue'
 import Checkout from './views/Checkout.vue'
 
+
 Vue.use(Router);
 
 export default new Router({
