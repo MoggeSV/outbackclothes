@@ -37,6 +37,11 @@
         <div class="col d-flex justify-content-end">
           <ul class="navbar-nav custom-right-padding">
             <li class="nav-item">
+              <router-link to="/about" class="nav-link">
+                <i class="far fa-address-card"></i>
+              </router-link>
+            </li>
+            <li class="nav-item">
               <router-link to="/" class="nav-link">
                 <i class="far fa-user-circle"></i>
               </router-link>
@@ -90,6 +95,9 @@
             </li>
           <li class="nav-item">
             <router-link to="/checkout" class="nav-link"><i class="fas fa-shopping-bag"></i>  Varukorg </router-link>
+        </li>
+        <li class="nav-item">
+            <router-link to="/about" class="nav-link"><i class="far fa-address-card"></i>  About </router-link>
         </li>
         </ul>
       </div>
