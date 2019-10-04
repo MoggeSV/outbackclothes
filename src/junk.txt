@@ -1,20 +1,3 @@
-    <div class="card-columns col-auto">
-      <div v-for="staff in staffs" v-bind:key="staff.id">
-        <div class="card text-center ">
-          <img :src="require(`@/assets/images/staff/${staff.img_url}`)" class="card-img-top p-1" />
-          <!-- <img v-bind:src="product.img_url" class="card-img-top" /> -->
-          <div class="card-body">
-            <!-- <small>Avdelning: <strong>{{product.category}}</strong></small> -->
-            <h5 class="card-title badge badge-pill badge-bg-color">{{staff.name}} kr</h5>
-            <h6 class="card-title lead">{{staff.title}}</h6>
-            <h6 class="card-title"><strong>{{staff.bio}}</strong></h6>
-            <!-- <p class="card-text">{{product.description}}</p> -->
-            <!-- <p>{{product.rating}}</p> -->
-          </div>
-          <!-- <div class="card-footer justify-content-center">
-            <input type="number" class="form-control mr-1" value="1" min="0" />
-            <router-link to="/" class="btn back-color-button">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
-          </div> -->
-        </div>
-      </div>
-    </div>
+The simplest solution is to add a :key attribute to <router-view> in your case <navbar/>
+
+<Navbar :key="$route.fullPath"/>
