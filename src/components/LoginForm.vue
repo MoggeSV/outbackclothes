@@ -1,17 +1,17 @@
 <template>
     <form>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ange email">
     <small id="emailHelp" class="form-text text-muted">Vi kommer inte dela din information till någon</small>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Lösenord</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="password">Lösenord</label>
+    <input type="password" class="form-control" id="password" placeholder="Ange lösenord">
   </div>
   <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Kolla in mig</label>
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+    <label class="form-check-label" for="exampleCheck1">Jag godkänner GDPR</label>
   </div>
   <button type="submit" class="btn btn-primary">Logga in</button>
 </form>
