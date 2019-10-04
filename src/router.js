@@ -6,25 +6,31 @@ import Children from './views/Children.vue'
 import Men from './views/Men.vue'
 import Woman from './views/Woman.vue'
 import Checkout from './views/Checkout.vue'
+import Login from './components/Login.vue'
+import Register from './components/Register.vue'
+import firebase from 'firebase';
 
 
 Vue.use(Router);
 
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: "/",
       name: "home",
-      component: Home
+      component: Home,
     },
     {
       path: "/about",
       name: "about",
-      component: About
+      component: About,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/children",
-      name: "Children",
+      name: "children",
       component: Children
     },
     {
@@ -42,5 +48,58 @@ export default new Router({
       name: "Checkout",
       component: Checkout
     },
+    {
+      path: "/login",
+      name: "login",
+      component: Login,
+      meta: {
+        requiresGuest: true
+      }
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: Register,
+      meta: {
+        requiresGuest: true
+      }
+    }
   ]
 });
+
+//Nav guards
+router.beforeEach((to, from, next) => {
+  //Check required Auth guard
+  if(to.matched.some(record => record.meta.requiresAuth)) {
+    //Check if NOT logged in
+    if(!firebase.auth().currentUser) {
+      next({
+        path: '/login',
+        query: {
+          redirect: to.fullPath
+        }
+      });
+    } else {
+      //proceed to route
+      next();
+    }
+  } else if (to.matched.some(record => record.meta.requiresGuest)) {
+    //Check if logged in
+    if(firebase.auth().currentUser) {
+      next({
+        path: '/about',
+        query: {
+          redirect: to.fullPath
+        }
+      });
+    } else {
+      //proceed to route
+      next();
+    }
+  } else {
+      //proceed to route
+       next();
+  }
+});
+
+export default router;
