@@ -41,7 +41,7 @@
                 <i class="far fa-user-circle"></i>
               </router-link>
             </li>
-            <li class="nav-item" v-on:click="showingCart = !showingCart">
+            <li class="nav-item" v-on:click="toggleSmallCart">
               <span class="nav-link" href="#">
                   <i class="fas fa-shopping-bag"></i>
               </span>
@@ -111,15 +111,18 @@ export default {
   components: {
     SmallCart
   },
-  data: function() {
-    return {
-      showingCart: false
-    }
-  },
   methods: {
-    closeSmallCart(value) {
-      this.showingCart = false;
-    }
+    toggleSmallCart() {
+      this.$store.dispatch('toggleCart');
+    },
+    closeSmallCart() {
+      this.$store.dispatch('closeCart');
+    },
+  },
+  computed: {
+    showingCart() {
+        return this.$store.getters.showingCart;
+    },
   }
 };
 </script>
