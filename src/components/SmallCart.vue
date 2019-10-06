@@ -9,8 +9,11 @@
             </h6>
         </div>
         <div id="small-cart-content">
-          <!-- List of products here -->
-            <div class="products">
+            <div id="empty-cart" v-show="CartLength == 0">
+                <p class="p-2">Din varukorg är tom.</p>
+            </div>
+            <!-- List of products here -->
+            <div class="products" v-show="CartLength > 0">
                 <ul class="list-group-flush no-inline-padding">
                     <li class="list-group-item" v-for="product in getCart">
                         <span class="row">
@@ -19,7 +22,7 @@
                         </span>
                         <span class="row">
                             <div class="col-6"><span class="product-text">{{ product.name }}</span></div>
-                            <div class="col-4 price">{{ product.price }} kr</div>
+                            <div class="col-4 price">{{ totalPriceItem(product.price, product.instock) }} kr</div>
                             <div class="col-2"><i class="fas fa-minus remove-icon text-muted" @click="removeItem(product)"></i></div>
                         </span>
                     </li>
@@ -28,7 +31,7 @@
         </div>  <!-- End of Content -->
         <!-- End of product list -->
         <!-- Small cart footer -->
-        <div id="small-cart-footer" class="shadow-top-inset">
+        <div id="small-cart-footer" class="shadow-top-inset" v-show="CartLength > 0">
             <div id="small-cart-total" class="row">
                 <div class="col ml-4 mt-3">
                     <div class="row">
@@ -39,7 +42,7 @@
                     </div>
                 </div>
                 <div class="col mt-3 d-flex justify-content-end mr-2">
-                    <span style="font-weight: bold; background:">3784 kr</span>
+                    <span style="font-weight: bold; background:">{{ totalPrice }} kr</span>
                 </div>
             </div>
             <div id="small-cart-checkout" class="row mt-2" v-on:click="closeSmallCart">
@@ -63,11 +66,20 @@ export default {
         },
         removeItem(item) {
             this.$store.dispatch('removeItem', item);
+        },
+        totalPriceItem(price, amount) {
+            return price * amount;
         }
     },
     computed: {
         getCart() {
             return this.$store.state.cart
+        },
+        CartLength() {
+            return this.$store.getters.getCartLength;
+        },
+        totalPrice() {
+            return this.$store.getters.getTotalPrice;
         }
     }
 }

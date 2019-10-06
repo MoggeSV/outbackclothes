@@ -13,6 +13,19 @@ export default new Vuex.Store({
   getters: {
     getCart: state => {
         return state.cart;
+    },
+    getCartLength: state => {
+        return state.cart.length;
+    },
+    getTotalPrice: state => {
+        let cart = state.cart;
+        let totalPrice = 0;
+
+        for(let i = 0; cart.length > i; i++) {
+            totalPrice += cart[i].price * cart[i].instock;
+        }
+
+        return totalPrice;
     }
   },
   mutations: {
