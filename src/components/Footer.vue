@@ -129,7 +129,7 @@ export default {
 }
 
 .bgImageChild {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.788);
   height: 100%;
 }
 
