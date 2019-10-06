@@ -45,10 +45,10 @@
                     <span style="font-weight: bold; background:">{{ totalPrice }} kr</span>
                 </div>
             </div>
-            <div id="small-cart-checkout" class="row mt-2" v-on:click="closeSmallCart">
+            <div id="small-cart-checkout" class="row mt-2">
                 <div class="col d-flex justify-content-end">
                     <router-link to="/checkout" class="btn checkout-btn">
-                        <span @click.stop="closeSmallCart()"><i class="far fa-credit-card"></i> Gå vidare</span>
+                        <span @click.stop="closeSmallCart"><i class="far fa-credit-card"></i> Gå vidare</span>
                     </router-link>
                 </div>
             </div>
@@ -61,14 +61,14 @@
 export default {
     name: "SmallCart",
     methods: {
-        closeSmallCart:function ( event ) {
-            this.$emit('clicked', false);
-        },
         removeItem(item) {
             this.$store.dispatch('removeItem', item);
         },
         totalPriceItem(price, amount) {
             return price * amount;
+        },
+        closeSmallCart() {
+            this.$store.dispatch('closeCart');
         }
     },
     computed: {

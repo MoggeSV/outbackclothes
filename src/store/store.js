@@ -98,21 +98,6 @@ export default new Vuex.Store({
                 }
             }
         }
-
-        /*
-        let currentId = item.id;
-        let itemPos = 0;
-
-        for(var i = 0; currentList.lenght > i++; ) {
-            if(currentList[i].id === currentId) {
-                itemPos = i;
-                context.commit('removeAmount', itemPos);
-            } else {
-                alert("else");
-            }
-        } */
-        // var a = currentList.indexOf(item);
-        
     }
   }
 });
