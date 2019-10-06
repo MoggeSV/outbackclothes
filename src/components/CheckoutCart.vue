@@ -21,9 +21,9 @@
                                     <div class="row d-inline-flex w-100">
                                         <span class="mt-2 smaller-text">{{ product.size }}</span>
                                         <span class="ml-auto">
-                                            <div class="col-2"><i class="fas fa-minus remove-icon text-muted" @click="removeItem(product)"></i></div>
+                                            <i class="fas fa-minus remove-icon text-muted" @click="removeItem(product)"></i>
                                         </span>
-                                    </div>
+                                    </div>  
                                 </div>
                             </div>
                         </div>
