@@ -22,7 +22,7 @@
                         </span>
                         <span class="row">
                             <div class="col-6"><span class="product-text">{{ product.name }}</span></div>
-                            <div class="col-4 price">{{ product.price }} kr</div>
+                            <div class="col-4 price">{{ totalPriceItem(product.price, product.instock) }} kr</div>
                             <div class="col-2"><i class="fas fa-minus remove-icon text-muted" @click="removeItem(product)"></i></div>
                         </span>
                     </li>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="col mt-3 d-flex justify-content-end mr-2">
-                    <span style="font-weight: bold; background:">3784 kr</span>
+                    <span style="font-weight: bold; background:">{{ totalPrice }} kr</span>
                 </div>
             </div>
             <div id="small-cart-checkout" class="row mt-2" v-on:click="closeSmallCart">
@@ -66,6 +66,9 @@ export default {
         },
         removeItem(item) {
             this.$store.dispatch('removeItem', item);
+        },
+        totalPriceItem(price, amount) {
+            return price * amount;
         }
     },
     computed: {
@@ -74,7 +77,10 @@ export default {
         },
         CartLength() {
             return this.$store.getters.getCartLength;
-        }        
+        },
+        totalPrice() {
+            return this.$store.getters.getTotalPrice;
+        }
     }
 }
 </script>
