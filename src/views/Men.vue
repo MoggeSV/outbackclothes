@@ -55,7 +55,8 @@ export default {
   methods: {
     addItem(item) {
       this.$store.dispatch('addItem', item);
-    }
+      this.$store.dispatch('openCart');
+    },
   },
   data() {
     return {

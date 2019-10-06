@@ -8,9 +8,13 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    cart: []
+    cart: [],
+    showingCart: false
   },
   getters: {
+    showingCart: state => {
+        return state.showingCart;
+    },
     getCart: state => {
         return state.cart;
     },
@@ -29,6 +33,15 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    toggleCart(state) {
+        state.showingCart = !state.showingCart;
+    },
+    openCart(state) {
+        state.showingCart = true;
+    },
+    closeCart(state) {
+        state.showingCart = false;
+    },
     addItem(state, item){
         state.cart.push(item)
     },
@@ -45,6 +58,15 @@ export default new Vuex.Store({
     
   },
   actions: {
+    toggleCart(context) {
+        context.commit('toggleCart');
+    },
+    openCart(context) {
+        context.commit('openCart');
+    },
+    closeCart(context) {
+        context.commit('closeCart');
+    },
     addItem(context, item) {
         let currentList = (this.state.cart);
         let addNew = true;
