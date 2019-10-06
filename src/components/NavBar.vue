@@ -112,11 +112,11 @@ export default {
     SmallCart
   },
   methods: {
-    toggleSmallCart() {
-      this.$store.dispatch('toggleCart');
-    },
     closeSmallCart() {
       this.$store.dispatch('closeCart');
+    },
+    toggleSmallCart() {
+      this.$store.dispatch('toggleCart');
     },
   },
   computed: {
