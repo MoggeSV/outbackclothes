@@ -6,45 +6,22 @@
                     <i class="fas fa-mountain"></i>
                 </span>
                 Varukorg
-                {{ message }}
             </h6>
         </div>
         <div id="small-cart-content">
           <!-- List of products here -->
             <div class="products">
                 <ul class="list-group-flush no-inline-padding">
-                    <li class="list-group-item">
+                    <li class="list-group-item" v-for="product in getCart">
                         <span class="row">
-                            <div class="col-2">1</div>
-                            <div class="col-9">Northface</div>
+                            <div class="col-3">{{ product.instock }} st</div>
+                            <div class="col-8">{{ product.brand }}</div>
                         </span>
                         <span class="row">
-                            <div class="col-6"><span class="product-text">Vinterjacka</span></div>
-                            <div class="col-4 price">3790 kr</div>
-                            <div class="col-2"><i class="fas fa-minus remove-icon text-muted"></i></div>
+                            <div class="col-6"><span class="product-text">{{ product.name }}</span></div>
+                            <div class="col-4 price">{{ product.price }} kr</div>
+                            <div class="col-2"><i class="fas fa-minus remove-icon text-muted" @click="removeItem(product)"></i></div>
                         </span>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="row">
-                            <div class="col-2">1</div>
-                            <div class="col-9">Peak Performance</div>
-                        </span>
-                        <span class="row">
-                            <div class="col-6"><span class="product-text">Friluftsbyxor</span></div>
-                            <div class="col-4 price">2999 kr</div>
-                            <div class="col-2"><i class="fas fa-minus remove-icon text-muted"></i></div>
-                        </span>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-2">1</div>
-                            <div class="col-9">Fjällräven</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6"><span class="product-text">Ryggsäck</span></div>
-                            <div class="col-4 price">890 kr</div>
-                            <div class="col-2"><i class="fas fa-minus remove-icon text-muted"></i></div>
-                        </div>
                     </li>
                 </ul>
             </div>
@@ -77,20 +54,20 @@
 </template>
 
 <script>
-import { store } from '../store/store';
-import Vue from 'vue';
-import Vuex from 'vuex';
 
 export default {
     name: "SmallCart",
     methods: {
         closeSmallCart:function ( event ) {
             this.$emit('clicked', false);
+        },
+        removeItem(item) {
+            this.$store.dispatch('removeItem', item);
         }
     },
     computed: {
-        message() {
-            return store.getters.message;
+        getCart() {
+            return this.$store.state.cart
         }
     }
 }
@@ -121,6 +98,7 @@ export default {
     color: rgb(65, 65, 65);
     text-transform: uppercase;
     font-weight: 500;
+    font-size: 0.8em;
 }
 
 .remove-icon {
