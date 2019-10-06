@@ -13,6 +13,9 @@ export default new Vuex.Store({
   getters: {
     getCart: state => {
         return state.cart;
+    },
+    getCartLength: state => {
+        return state.cart.length;
     }
   },
   mutations: {

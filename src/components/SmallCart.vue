@@ -9,8 +9,11 @@
             </h6>
         </div>
         <div id="small-cart-content">
-          <!-- List of products here -->
-            <div class="products">
+            <div id="empty-cart" v-show="CartLength == 0">
+                <p class="p-2">Din varukorg är tom.</p>
+            </div>
+            <!-- List of products here -->
+            <div class="products" v-show="CartLength > 0">
                 <ul class="list-group-flush no-inline-padding">
                     <li class="list-group-item" v-for="product in getCart">
                         <span class="row">
@@ -28,7 +31,7 @@
         </div>  <!-- End of Content -->
         <!-- End of product list -->
         <!-- Small cart footer -->
-        <div id="small-cart-footer" class="shadow-top-inset">
+        <div id="small-cart-footer" class="shadow-top-inset" v-show="CartLength > 0">
             <div id="small-cart-total" class="row">
                 <div class="col ml-4 mt-3">
                     <div class="row">
@@ -68,7 +71,10 @@ export default {
     computed: {
         getCart() {
             return this.$store.state.cart
-        }
+        },
+        CartLength() {
+            return this.$store.getters.getCartLength;
+        }        
     }
 }
 </script>
