@@ -92,7 +92,7 @@ export default {
     box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.38);
     border-radius: 5px;
     width: 250px;
-    min-height: 300px;
+    min-height: 200px;
     min-width: 300px;
     background: white;
 }
@@ -165,6 +165,10 @@ export default {
 
 .no-inline-padding {
     padding-inline-start: 0px;
+}
+
+.remove-icon {
+    cursor: pointer !important;
 }
 
 
