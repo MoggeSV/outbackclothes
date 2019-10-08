@@ -1,6 +1,8 @@
 <template>
-  <div class="container bg-light">
-    <div id="image "></div>
+<div>
+  <AutumnSale />
+   <div class="container bg-light">
+    <h4 class="pt-4">Damkläder</h4>
     <div class="search-container my-5">
         <label class="mr-3 mt-2">Välj kategori</label>
           <select class="select-css mr-5" v-model="selectedCategory">
@@ -23,20 +25,17 @@
             <option value="Kappa">Kappa</option>
             <option value="Peak Performance">Peak Performance</option>
           </select>
-	      <!-- <input type="search" v-model="search" placeholder="Search"> -->
     </div>
+    <h4 class="pb-3">Damkläder</h4>
     <div class="card-columns">
       <div v-for="product in filteredClothes" v-bind:key="product.id">
         <div class="card text-center">
           <img :src="require(`@/assets/images/woman/${product.img_url}`)" class="card-img-top p-1 w-75 h-75" />
-          <!-- <img v-bind:src="product.img_url" class="card-img-top" /> -->
           <div class="card-body">
-            <!-- <small>Avdelning: <strong>{{product.category}}</strong></small> -->
             <h5 class="card-title badge badge-pill badge-bg-color">{{product.price}} kr</h5>
             <h6 class="card-title lead">{{product.name}}</h6>
             <h6 class="card-title"><strong>{{product.brand}}</strong></h6>
-            <!-- <p class="card-text">{{product.description}}</p> -->
-            <!-- <p>{{product.rating}}</p> -->
+            <star-rating :star-size="15" :increment="0.5" :show-rating="false" v-model="product.rating" :rtl="true"></star-rating>
           </div>
           <div class="card-footer justify-content-center">
             <input type="number" class="form-control mr-1" value="1" min="0" />
@@ -46,10 +45,13 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
 import db from "@/components/firebaseInit";
+import StarRating from 'vue-star-rating'
+import AutumnSale from '@/components/AutumnSale'
 
 export default {
   name: "woman",
@@ -66,6 +68,10 @@ export default {
       selectedBrand: "All"
     };
   },
+    components: {
+      StarRating,
+      AutumnSale
+},
   created() {
     db.collection("women")
       .orderBy("brand")
