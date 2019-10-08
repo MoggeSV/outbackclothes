@@ -161,7 +161,7 @@ export default {
     toggleSmallCart() {
       this.$store.dispatch('toggleCart');
     },
-        logout: function() {
+     logout: function() {
       firebase.auth().signOut().then(() => {
         this.$router.go({path: this.$router.path});
       });
