@@ -33,19 +33,15 @@
           <!-- <img v-bind:src="product.img_url" class="card-img-top" /> -->
           <div class="card-body">
             <!-- <small>Avdelning: <strong>{{product.category}}</strong></small> -->
-
             <h5 class="card-title badge badge-pill badge-bg-color">{{product.price}} kr</h5>
-
             <h6 class="card-title lead">{{product.name}}</h6>
             <h6 class="card-title"><strong>{{product.brand}}</strong></h6>
+            <star-rating :star-size="15" :increment="0.5" :show-rating="false" v-model="product.rating"></star-rating>
             <!-- <p class="card-text">{{product.description}}</p> -->
-            <!-- <p>{{product.rating}}</p> -->
           </div>
           <div class="card-footer justify-content-center">
             <input type="number" class="form-control mr-1" value="1" min="0" />
-
             <router-link to="/" class="btn back-color-button btn-sm">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
-
           </div>
         </div>
       </div>
@@ -55,6 +51,7 @@
 
 <script>
 import db from "@/components/firebaseInit";
+import StarRating from 'vue-star-rating'
 
 export default {
   name: "children",
@@ -62,11 +59,13 @@ export default {
     return {
       products: [],
       selectedCategory: "All",
-
       selectedBrand: "All"
 
     };
   },
+  components: {
+  StarRating
+},
   created() {
     db.collection("children")
       .orderBy("brand")
