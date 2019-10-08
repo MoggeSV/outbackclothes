@@ -9,9 +9,13 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     cart: [],
-    showingCart: false
+    showingCart: false,
+    showingLogin: false
   },
   getters: {
+    showingLogin: state => {
+        return state.showingLogin;
+    },
     showingCart: state => {
         return state.showingCart;
     },
@@ -33,8 +37,19 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    toggleLogin(state) {
+        state.showingLogin = !state.showingLogin;
+        state.showingCart = false;
+    },
+    openLogin(state) {
+        state.showingLogin = true;
+    },
+    closeLogin(state) {
+        state.showingLogin = false;
+    },
     toggleCart(state) {
         state.showingCart = !state.showingCart;
+        state.showingLogin = false;
     },
     openCart(state) {
         state.showingCart = true;
@@ -58,6 +73,15 @@ export default new Vuex.Store({
     
   },
   actions: {
+    toggleLogin(context) {
+        context.commit('toggleLogin');
+    },
+    openLoggin(context) {
+        context.commit('openLogin');
+    },
+    closeLogin(context) {
+        context.commit('closeLogin');
+    },
     toggleCart(context) {
         context.commit('toggleCart');
     },

@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="container mt-2" id="loginDropdown">
   <h3>Login</h3>
     <form>
     <div class="form-group">
@@ -49,5 +49,15 @@ export default {
 </script>
 
 <style>
-
+#loginDropdown {
+      -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.38);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.38);
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.38);
+    border-radius: 5px;
+    width: 250px;
+    min-height: 200px;
+    min-width: 300px;
+    background: white;
+    padding: 10px;
+}
 </style>

@@ -36,16 +36,6 @@
         </div>
         <div class="col d-flex justify-content-end">
           <ul class="navbar-nav custom-right-padding">
-            <li v-if="!isLoggedIn" class="nav-item">
-              <router-link to="/login" class="nav-link">
-                <i class="fas fa-sign-in-alt"></i>
-              </router-link>
-            </li>
-            <li v-if="!isLoggedIn" class="nav-item">
-              <router-link to="/register" class="nav-link">
-                <i class="fas fa-user-plus"></i>
-              </router-link>
-            </li>
             <li v-if="isLoggedIn" class="nav-item">
               <button v-on:click="logout" class="btn btn-dark">Logga ut</button>
             </li>
@@ -54,22 +44,25 @@
                 <i class="far fa-address-card"></i>
               </router-link>
             </li>
-            <li class="nav-item mr-5">
-              <router-link to="/" class="nav-link">
+            <li v-if="!isLoggedIn" class="nav-item" @click="toggleLogin">
+              <span class="nav-link">
                 <i class="far fa-user-circle"></i>
-              </router-link>
+              </span>
             </li>
             <li class="nav-item" v-on:click="toggleSmallCart">
               <span class="nav-link" href="#">
                 <i class="fas fa-shopping-bag"></i>
-                <span id="itemsInCart">{{ getCartLength }}</span>
+                <span class="" id="itemsInCart"><span class="badge badge-pill badge-danger">{{ getCartLength }}</span></span>
               </span>
             </li>
           </ul>
         </div>
       </div>
       <transition name="fade">
-        <SmallCart @clicked="closeSmallCart()" v-click-outside="closeSmallCart" v-if="showingCart === true" class="small-cart"/>
+        <SmallCart @clicked="closeSmallCart()" v-click-outside="closeSmallCart" v-if="showingCart" class="small-cart"/>
+      </transition>
+      <transition name="fade">
+        <LoginDropdown class="loginDropDown" v-if="showingLogin"/>
       </transition>
       </div>
     </nav>
@@ -89,7 +82,7 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
@@ -131,6 +124,7 @@
  <script>
 
 import SmallCart from '@/components/SmallCart'
+import LoginDropdown from '@/components/Login'
 import Vue from 'vue'
 import vClickOutside from 'v-click-outside'
 import firebase from 'firebase'
@@ -141,7 +135,8 @@ Vue.use(vClickOutside)
 export default {
   name: "NavBar",
   components: {
-    SmallCart
+    SmallCart,
+    LoginDropdown
   },
   data: function() {
     return {
@@ -156,6 +151,12 @@ export default {
     }
   },
   methods: {
+    closeLogin() {
+      this.$store.dispatch('closeLogin');
+    },
+    toggleLogin() {
+      this.$store.dispatch('toggleLogin');
+    },
     closeSmallCart() {
       this.$store.dispatch('closeCart');
     },
@@ -169,11 +170,14 @@ export default {
     }
   },
   computed: {
+    showingLogin() {
+      return this.$store.getters.showingLogin;
+    },
     showingCart() {
-        return this.$store.getters.showingCart;
+      return this.$store.getters.showingCart;
     },
     getCartLength() {
-        return this.$store.getters.getCartLength;
+      return this.$store.getters.getCartLength;
     }
   }
 };
@@ -185,10 +189,17 @@ export default {
  }
 
  .small-cart {
-   position: absolute;
-   z-index: 1000;
-   right: 80px;
-   top: 50px;
+    position: absolute;
+    z-index: 1000;
+    right: 80px;
+    top: 50px;
+ }
+
+ .loginDropDown {
+    position: absolute;
+    z-index: 1000;
+    right: 80px;
+    top: 50px;
  }
 
 .logo {
@@ -231,11 +242,7 @@ span {
 }
 
 #itemsInCart {
-  background: red;
-  border-radius: 50%;
-  width: 50px;
-  padding: 5px;
-  min-height: 20px
+
 }
 
 </style>
