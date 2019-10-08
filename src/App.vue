@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="bg-light">
     <div id="nav">
-      <TopNav />
+      <TopNav class="d-none d-lg-block"/>
       <NavBar />
     </div>
     <router-view />
