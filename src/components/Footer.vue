@@ -52,24 +52,22 @@
     </div>
     <!-- End -->
 
-    <!-- Only visable on medium and lower -->
-    <div class="container d-sm-block d-md-block d-lg-none d-xl-none">
+    <!-- Only visable on small devices -->
+    <div class="container borderMobile pt-2 d-sm-block d-md-block d-lg-none d-xl-none">
       <div class="row">
-        <div class="container">
-          <div class="col text-center">
-            <h1 class="text-uppercase">Betalsätt</h1>
-            <ul class="list-inline d-flex justify-content-center">
-              <li class="Mastercard col">
-                <img src="../assets/images/MasterCardSMall.png" alt="MasterCard" />
-              </li>
-              <li class="Visa col">
-                <img src="../assets/images/Visa.png" alt="Visa" />
-              </li>
-              <li class="Amex-small col">
-                <img src="../assets/images/Amex-small.png" alt="Amex-small" />
-              </li>
-            </ul>
-          </div>
+        <div class="col text-center">
+          <h1 class="text-uppercase">Betalsätt</h1>
+          <ul class="list-inline d-flex justify-content-center">
+            <li class="Mastercard col">
+              <img src="../assets/images/MasterCardSMall.png" alt="MasterCard" />
+            </li>
+            <li class="Visa col">
+              <img src="../assets/images/Visa.png" alt="Visa" />
+            </li>
+            <li class="Amex-small col">
+              <img src="../assets/images/Amex-small.png" alt="Amex-small" />
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -85,19 +83,19 @@
             <div class="text-center mobileSocials">
               <div class="d-flex justify-content-between">
                 <div class="faceBook p-2 d-inline">
-                  <a href="#!" class="fa fa-facebook"></a>
+                  <a href="#" class="fa fa-facebook"></a>
                 </div>
                 <div class="twitter p-2 d-inline">
-                  <a href="#!" class="fa fa-twitter"></a>
+                  <a href="#" class="fa fa-twitter"></a>
                 </div>
                 <div class="Reddit p-2 d-inline">
-                  <a href="#!" class="fa fa-reddit"></a>
+                  <a href="#" class="fa fa-reddit"></a>
                 </div>
                 <div class="Google p-2 d-inline">
-                  <a href="#!" class="fab fa-google-plus-g"></a>
+                  <a href="#" class="fab fa-google-plus-g"></a>
                 </div>
                 <div class="linkedIn p-2 d-inline">
-                  <a href="#!" class="fa fa-linkedin"></a>
+                  <a href="#" class="fa fa-linkedin"></a>
                 </div>
               </div>
             </div>
@@ -280,4 +278,6 @@ a {
   color: black;
   font-weight: bold;
 }
+
+
 </style>
