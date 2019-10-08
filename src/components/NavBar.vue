@@ -38,7 +38,6 @@
           <ul class="navbar-nav custom-right-padding">
             <li v-if="isLoggedIn" class="nav-item" v-on:click="logout">
               <span class="nav-link">
-                <span>{{ currentUser }} </span>
                 <i class="fas fa-sign-out-alt"></i>
               </span>
             </li>
@@ -89,34 +88,42 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link to="/men" class="nav-link">
+            <router-link to="/men" class="nav-link" data-toggle="collapse"
+        data-target="#navbarNavDropdown">
               Man
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/woman" class="nav-link">Kvinna</router-link>
+            <router-link to="/woman" class="nav-link" data-toggle="collapse"
+        data-target="#navbarNavDropdown">Kvinna</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/children" class="nav-link">Barn</router-link>
+            <router-link to="/children" class="nav-link" data-toggle="collapse"
+        data-target="#navbarNavDropdown">Barn</router-link>
           </li>
-          <li v-if="!isLoggedIn" class="nav-item">
+          <li v-if="!isLoggedIn" class="nav-item" data-toggle="collapse"
+        data-target="#navbarNavDropdown">
             <router-link to="/login" class="nav-link"><i class="fas fa-sign-in-alt"></i> Logga in</router-link>
           </li>
-          <li v-if="isLoggedIn" class="nav-item" v-on:click="logout">
-            <i class="fas fa-sign-out-alt"></i>
-          </li>
-          <li v-if="!isLoggedIn" class="nav-item">
-            <router-link to="/login" class="nav-link"><i class="fas fa-user-plus"></i> Registrera</router-link>
-          </li>
           <li v-if="isLoggedIn" class="nav-item">
-            <router-link to="/profile" class="nav-link"><i class="far fa-user-circle"></i> Profil</router-link>
+            <router-link to="/profile" class="nav-link">
+            <i class="far fa-user-circle"></i>
+              <span> Profil ({{ currentUser }}) </span>
+              </router-link>
             </li>
-          <li class="nav-item">
+          <li class="nav-item" data-toggle="collapse"
+        data-target="#navbarNavDropdown">
             <router-link to="/checkout" class="nav-link"><i class="fas fa-shopping-bag"></i>  Varukorg </router-link>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" v-if="isLoggedIn">
             <router-link to="/about" class="nav-link"><i class="far fa-address-card"></i>  About </router-link>
         </li>
+          <li v-if="isLoggedIn" class="nav-item" v-on:click="logout" data-toggle="collapse"
+          data-target="#navbarNavDropdown">
+            <span class="nav-link">
+              <i class="fas fa-sign-out-alt"></i> Logga ut
+            </span>
+          </li>
         </ul>
       </div>
     </nav>
