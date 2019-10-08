@@ -2,49 +2,28 @@
     <div id="checkout-cart" class="container mt-5">
         <div id="checkout-products">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">
+                <li class="list-group-item" v-for="product in getCart">
                     <div class="container">
                         <div class="row">
                             <div class="col-4 col-sm-3 col-md-2 col-lg-2">
-                                <img src="../assets/images/men/men_1.jpg" class="product-image" alt="">
+                                <img :src="require(`@/assets/images/men/${product.img_url}`)" class="product-image" alt=""/>
                             </div>
                             <div class="col-8 col-sm-9 col-md-10 col-lg-10">
                                 <div class="container">
                                     <div class="row d-inline-flex w-100">
-                                        <span class="product-brand">Lyle & Scott</span>
-                                        <span class="ml-auto">Antal: 1</span>
+                                        <span class="product-brand">{{ product.brand }}</span>
+                                        <span class="ml-auto">{{ product.instock }} st</span>
                                     </div>
                                     <div class="row d-inline-flex w-100">
-                                        <span class="product-name">Höstjacka</span>
-                                        <span class="ml-auto smaller-text">1600 kr</span>
+                                        <span class="product-name">{{ product.name }}</span>
+                                        <span class="ml-auto smaller-text">{{ totalPriceItem(product.price, product.instock) }} kr</span>
                                     </div>
                                     <div class="row d-inline-flex w-100">
-                                        <span class="mt-2 smaller-text">Storlek: M</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-4 col-sm-3 col-md-2 col-lg-2">
-                                <img src="../assets/images/men/men_7.jpg" class="product-image" alt="">
-                            </div>
-                            <div class="col-8 col-sm-9 col-md-10 col-lg-10">
-                                <div class="container">
-                                    <div class="row d-inline-flex w-100">
-                                        <span class="product-brand">Tiger of sweden</span>
-                                        <span class="ml-auto">Antal: 1</span>
-                                    </div>
-                                    <div class="row d-inline-flex w-100">
-                                        <span class="product-name">Mössa</span>
-                                        <span class="ml-auto smaller-text">399 kr</span>
-                                    </div>
-                                    <div class="row d-inline-flex w-100">
-                                        <span class="mt-2 smaller-text">Storlek: One size</span>
-                                    </div>
+                                        <span class="mt-2 smaller-text">{{ product.size }}</span>
+                                        <span class="ml-auto">
+                                            <i class="fas fa-minus remove-icon text-muted" @click="removeItem(product)"></i>
+                                        </span>
+                                    </div>  
                                 </div>
                             </div>
                         </div>
@@ -79,7 +58,7 @@
                                 <span class="w-100" style="text-align: justify;">Deltotal</span>
                             </div>
                             <div class="col">
-                                <span>4798 kr</span>
+                                <span>{{ totalPrice }} kr</span>
                             </div>
                         </div>
                         <div class="row d-flex justify-content-center custom-muted-text">
@@ -102,7 +81,7 @@
                             <div class="col">
                                 <span class="w-100 font-weight-bold">Totalsumma</span>
                             </div>
-                            <div class="col"><span class="font-weight-bold">4798 kr</span></div>
+                            <div class="col"><span class="font-weight-bold">{{totalPrice }} kr</span></div>
                         </div>
                     </div>
                 </div>
@@ -134,7 +113,7 @@
                         Deltotal:
                     </div>
                     <div class="col-4 d-flex justify-content-end">
-                        3894 kr
+                        {{totalPrice }} kr
                     </div>
                 </div>
                 <div class="row d-flex justify-content-between custom-muted-text">
@@ -158,7 +137,7 @@
                         Totalsumma:
                     </div>
                     <div class="col-4 d-flex justify-content-end">
-                        3894 kr
+                        {{ totalPrice }}
                     </div>
                 </div>
             </div>
@@ -188,6 +167,25 @@ export default {
     components: {
         CheckoutForm,
         Pay
+    },
+    methods: {
+        removeItem(item) {
+            this.$store.dispatch('removeItem', item);
+        },
+        totalPriceItem(price, amount) {
+            return price * amount;
+        }
+    },
+    computed: {
+        getCart() {
+            return this.$store.state.cart
+        },
+        CartLength() {
+            return this.$store.getters.getCartLength;
+        },
+        totalPrice() {
+            return this.$store.getters.getTotalPrice;
+        }
     }
 }
 </script>

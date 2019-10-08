@@ -59,7 +59,7 @@
                 <i class="far fa-user-circle"></i>
               </router-link>
             </li>
-            <li class="nav-item" v-on:click="showingCart = !showingCart">
+            <li class="nav-item" v-on:click="toggleSmallCart">
               <span class="nav-link" href="#">
                 <i class="fas fa-shopping-bag"></i>
               </span>
@@ -144,7 +144,6 @@ export default {
   },
   data: function() {
     return {
-      showingCart: false,
       isLoggedIn: false,
       currentUser: false
     }
@@ -153,17 +152,24 @@ export default {
     if(firebase.auth().currentUser) {
       this.isLoggedIn = true;
       this.currentUser = firebase.auth().currentUser.email;
-    }
-  },
-  methods: {
-    closeSmallCart(value) {
-      this.showingCart = false;
     },
     logout: function() {
       firebase.auth().signOut().then(() => {
         this.$router.go({path: this.$router.path});
       });
     }
+  methods: {
+    closeSmallCart() {
+      this.$store.dispatch('closeCart');
+    },
+    toggleSmallCart() {
+      this.$store.dispatch('toggleCart');
+    },
+  },
+  computed: {
+    showingCart() {
+        return this.$store.getters.showingCart;
+    },
   }
 };
 </script>

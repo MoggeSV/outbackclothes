@@ -9,48 +9,29 @@
             </h6>
         </div>
         <div id="small-cart-content">
-          <!-- List of products here -->
-            <div class="products">
+            <div id="empty-cart" v-show="CartLength == 0">
+                <p class="p-2">Din varukorg är tom.</p>
+            </div>
+            <!-- List of products here -->
+            <div class="products" v-show="CartLength > 0">
                 <ul class="list-group-flush no-inline-padding">
-                    <li class="list-group-item">
+                    <li class="list-group-item" v-for="product in getCart">
                         <span class="row">
-                            <div class="col-2">1</div>
-                            <div class="col-9">Northface</div>
+                            <div class="col-3">{{ product.instock }} st</div>
+                            <div class="col-8">{{ product.brand }}</div>
                         </span>
                         <span class="row">
-                            <div class="col-6"><span class="product-text">Vinterjacka</span></div>
-                            <div class="col-4 price">3790 kr</div>
-                            <div class="col-2"><i class="fas fa-minus remove-icon text-muted"></i></div>
+                            <div class="col-6"><span class="product-text">{{ product.name }}</span></div>
+                            <div class="col-4 price">{{ totalPriceItem(product.price, product.instock) }} kr</div>
+                            <div class="col-2"><i class="fas fa-minus remove-icon text-muted" @click="removeItem(product)"></i></div>
                         </span>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="row">
-                            <div class="col-2">1</div>
-                            <div class="col-9">Peak Performance</div>
-                        </span>
-                        <span class="row">
-                            <div class="col-6"><span class="product-text">Friluftsbyxor</span></div>
-                            <div class="col-4 price">2999 kr</div>
-                            <div class="col-2"><i class="fas fa-minus remove-icon text-muted"></i></div>
-                        </span>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-2">1</div>
-                            <div class="col-9">Fjällräven</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6"><span class="product-text">Ryggsäck</span></div>
-                            <div class="col-4 price">890 kr</div>
-                            <div class="col-2"><i class="fas fa-minus remove-icon text-muted"></i></div>
-                        </div>
                     </li>
                 </ul>
             </div>
         </div>  <!-- End of Content -->
         <!-- End of product list -->
         <!-- Small cart footer -->
-        <div id="small-cart-footer" class="shadow-top-inset">
+        <div id="small-cart-footer" class="shadow-top-inset" v-show="CartLength > 0">
             <div id="small-cart-total" class="row">
                 <div class="col ml-4 mt-3">
                     <div class="row">
@@ -61,13 +42,13 @@
                     </div>
                 </div>
                 <div class="col mt-3 d-flex justify-content-end mr-2">
-                    <span style="font-weight: bold; background:">3784 kr</span>
+                    <span style="font-weight: bold; background:">{{ totalPrice }} kr</span>
                 </div>
             </div>
-            <div id="small-cart-checkout" class="row mt-2" v-on:click="closeSmallCart">
+            <div id="small-cart-checkout" class="row mt-2">
                 <div class="col d-flex justify-content-end">
                     <router-link to="/checkout" class="btn checkout-btn">
-                        <span @click.stop="closeSmallCart()"><i class="far fa-credit-card"></i> Gå vidare</span>
+                        <span @click.stop="closeSmallCart"><i class="far fa-credit-card"></i> Gå vidare</span>
                     </router-link>
                 </div>
             </div>
@@ -80,8 +61,25 @@
 export default {
     name: "SmallCart",
     methods: {
-        closeSmallCart:function ( event ) {
-            this.$emit('clicked', false);
+        removeItem(item) {
+            this.$store.dispatch('removeItem', item);
+        },
+        totalPriceItem(price, amount) {
+            return price * amount;
+        },
+        closeSmallCart() {
+            this.$store.dispatch('closeCart');
+        }
+    },
+    computed: {
+        getCart() {
+            return this.$store.state.cart
+        },
+        CartLength() {
+            return this.$store.getters.getCartLength;
+        },
+        totalPrice() {
+            return this.$store.getters.getTotalPrice;
         }
     }
 }
@@ -94,7 +92,7 @@ export default {
     box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.38);
     border-radius: 5px;
     width: 250px;
-    min-height: 300px;
+    min-height: 200px;
     min-width: 300px;
     background: white;
 }
@@ -112,6 +110,7 @@ export default {
     color: rgb(65, 65, 65);
     text-transform: uppercase;
     font-weight: 500;
+    font-size: 0.8em;
 }
 
 .remove-icon {
@@ -166,6 +165,10 @@ export default {
 
 .no-inline-padding {
     padding-inline-start: 0px;
+}
+
+.remove-icon {
+    cursor: pointer !important;
 }
 
 
