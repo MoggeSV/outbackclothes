@@ -79,6 +79,7 @@ export default {
             description: doc.data().description,
             img_url: doc.data().img_url,
             instock: doc.data().instock,
+            amount: doc.data().amount,
             name: doc.data().name,
             price: doc.data().price,
             size: doc.data().size,

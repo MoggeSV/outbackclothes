@@ -15,14 +15,14 @@
             <!-- List of products here -->
             <div class="products" v-show="CartLength > 0">
                 <ul class="list-group-flush no-inline-padding">
-                    <li class="list-group-item" v-for="product in getCart">
+                    <li class="list-group-item" v-for="product in getCart" v-bind:key="product.id">
                         <span class="row">
-                            <div class="col-3">{{ product.instock }} st</div>
+                            <div class="col-3">{{ product.amount }} st</div>
                             <div class="col-8">{{ product.brand }}</div>
                         </span>
                         <span class="row">
                             <div class="col-6"><span class="product-text">{{ product.name }}</span></div>
-                            <div class="col-4 price">{{ totalPriceItem(product.price, product.instock) }} kr</div>
+                            <div class="col-4 price">{{ totalPriceItem(product.price, product.amount) }} kr</div>
                             <div class="col-2"><i class="fas fa-minus remove-icon text-muted" @click="removeItem(product)"></i></div>
                         </span>
                     </li>

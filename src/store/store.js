@@ -26,7 +26,7 @@ export default new Vuex.Store({
         let totalPrice = 0;
 
         for(let i = 0; cart.length > i; i++) {
-            totalPrice += cart[i].price * cart[i].instock;
+            totalPrice += cart[i].price * cart[i].amount;
         }
 
         return totalPrice;
@@ -50,10 +50,10 @@ export default new Vuex.Store({
         state.cart.splice(state.cart.indexOf(item), 1)
     },
     addAmount(state, item) {
-        state.cart[item].instock += 1;
+        state.cart[item].amount += 1;
     },
     removeAmount(state, item) {
-        state.cart[item].instock--;
+        state.cart[item].amount--;
     }
     
   },
@@ -91,7 +91,7 @@ export default new Vuex.Store({
 
         for(let i = 0; currentList.length > i; i++) {
             if( currentList[i].id === currentId ) {
-                if(currentList[i].instock > 1) {
+                if(currentList[i].amount > 1) {
                     context.commit('removeAmount', removeIndex)
                 } else {
                     context.commit('removeItem', item)

@@ -2,7 +2,7 @@
     <div id="checkout-cart" class="container mt-5">
         <div id="checkout-products">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item" v-for="product in getCart">
+                <li class="list-group-item" v-for="product in getCart" v-bind:key="product.id">
                     <div class="container">
                         <div class="row">
                             <div class="col-4 col-sm-3 col-md-2 col-lg-2">
@@ -12,11 +12,11 @@
                                 <div class="container">
                                     <div class="row d-inline-flex w-100">
                                         <span class="product-brand">{{ product.brand }}</span>
-                                        <span class="ml-auto">{{ product.instock }} st</span>
+                                        <span class="ml-auto">{{ product.amount }} st</span>
                                     </div>
                                     <div class="row d-inline-flex w-100">
                                         <span class="product-name">{{ product.name }}</span>
-                                        <span class="ml-auto smaller-text">{{ totalPriceItem(product.price, product.instock) }} kr</span>
+                                        <span class="ml-auto smaller-text">{{ totalPriceItem(product.price, product.amount) }} kr</span>
                                     </div>
                                     <div class="row d-inline-flex w-100">
                                         <span class="mt-2 smaller-text">{{ product.size }}</span>
