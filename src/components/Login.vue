@@ -1,4 +1,5 @@
 <template>
+
 <div class="container mt-2" id="loginDropdown">
     <form>
     <div class="form-group">
@@ -11,6 +12,7 @@
       <input type="password" class="form-control" id="password" placeholder="Ange lösenord" v-model="password" required>
     </div>
     <button v-on:click="login" type="submit" class="btn btn-primary">Logga in</button>
+    <a class="ml-2" href="" data-toggle="modal" data-target="#exampleModal">Har du inte ett konto?</a>
 </form>
 </div>
 

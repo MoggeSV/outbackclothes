@@ -1,26 +1,23 @@
 <template>
-<div class="container">
-  <h3>Register</h3>
-    <form>
-    <div class="form-group">
-      <label for="email">Email address</label>
-      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ange email" required v-model="email">
-      <small id="emailHelp" class="form-text text-muted">Vi kommer inte dela din information till någon</small>
-    </div>
-    <div class="form-group">
-      <label for="password">Lösenord</label>
-      <input type="password" class="form-control" id="password" placeholder="Ange lösenord" required v-model="password ">
-    </div>
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="checkme" required>
-      <label class="form-check-label" for="checkme">Jag godkänner GDPR</label>
-    </div>
-    <button type="submit" class="btn btn-primary" v-on:click="register">Registrera</button>
-</form>
-</div>
-
+  <div class="container">
+      <form>
+        <div class="form-group">
+          <label for="email">E-postadress</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ange e-postadress" required v-model="email">
+          <small id="emailHelp" class="form-text text-muted">Vi kommer inte dela din information till någon</small>
+        </div>
+        <div class="form-group">
+          <label for="password">Lösenord</label>
+          <input type="password" class="form-control" id="password" placeholder="Ange lösenord" required v-model="password ">
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="checkme" required>
+          <label class="form-check-label" for="checkme">Jag godkänner GDPR</label>
+        </div>
+        <button type="submit" class="btn btn-primary" v-on:click="register">Registrera</button>
+    </form>
+  </div>
 </template>
-
 <script>
 import firebase from 'firebase';
 export default {
