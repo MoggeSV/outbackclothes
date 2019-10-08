@@ -39,7 +39,7 @@
           </div>
           <div class="card-footer justify-content-center">
             <input type="number" class="form-control mr-1" value="1" min="0" />
-            <router-link to="/" class="btn back-color-button">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
+            <button class="btn back-color-button" @click.stop="addItem(product)">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></button>
           </div>
         </div>
       </div>
@@ -52,6 +52,12 @@ import db from "@/components/firebaseInit";
 
 export default {
   name: "men",
+  methods: {
+    addItem(item) {
+      this.$store.dispatch('addItem', item);
+      this.$store.dispatch('openCart');
+    },
+  },
   data() {
     return {
       products: [],

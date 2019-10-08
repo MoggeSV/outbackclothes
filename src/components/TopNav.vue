@@ -19,7 +19,7 @@
         </div>
       </div>
     <!-- small devices -->
-<div class="container-fluid d-md-none d-block">
+      <div class="container-fluid d-md-none d-block">
         <div class="container">
           <div class="row">
             <div class="d-block col-12 box text-center">
