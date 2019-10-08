@@ -62,6 +62,7 @@
             <li class="nav-item" v-on:click="toggleSmallCart">
               <span class="nav-link" href="#">
                 <i class="fas fa-shopping-bag"></i>
+                <span id="itemsInCart">{{ getCartLength }}</span>
               </span>
             </li>
           </ul>
@@ -171,6 +172,9 @@ export default {
     showingCart() {
         return this.$store.getters.showingCart;
     },
+    getCartLength() {
+        return this.$store.getters.getCartLength;
+    }
   }
 };
 </script>
@@ -224,6 +228,14 @@ span {
 
 .nav-item {
   cursor: pointer;
+}
+
+#itemsInCart {
+  background: red;
+  border-radius: 50%;
+  width: 50px;
+  padding: 5px;
+  min-height: 20px
 }
 
 </style>
