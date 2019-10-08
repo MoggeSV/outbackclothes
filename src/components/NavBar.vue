@@ -36,14 +36,32 @@
         </div>
         <div class="col d-flex justify-content-end">
           <ul class="navbar-nav custom-right-padding">
-            <li class="nav-item">
+            <li v-if="!isLoggedIn" class="nav-item">
+              <router-link to="/login" class="nav-link">
+                <i class="fas fa-sign-in-alt"></i>
+              </router-link>
+            </li>
+            <li v-if="!isLoggedIn" class="nav-item">
+              <router-link to="/register" class="nav-link">
+                <i class="fas fa-user-plus"></i>
+              </router-link>
+            </li>
+            <li v-if="isLoggedIn" class="nav-item">
+              <button v-on:click="logout" class="btn btn-dark">Logga ut</button>
+            </li>
+            <li v-if="isLoggedIn" class="nav-item">
+              <router-link to="/about" class="nav-link">
+                <i class="far fa-address-card"></i>
+              </router-link>
+            </li>
+            <li class="nav-item mr-5">
               <router-link to="/" class="nav-link">
                 <i class="far fa-user-circle"></i>
               </router-link>
             </li>
             <li class="nav-item" v-on:click="toggleSmallCart">
               <span class="nav-link" href="#">
-                  <i class="fas fa-shopping-bag"></i>
+                <i class="fas fa-shopping-bag"></i>
               </span>
             </li>
           </ul>
@@ -85,11 +103,23 @@
           <li class="nav-item">
             <router-link to="/children" class="nav-link">Barn</router-link>
           </li>
-          <li class="nav-item">
+          <li v-if="!isLoggedIn" class="nav-item">
+            <router-link to="/login" class="nav-link"><i class="fas fa-sign-in-alt"></i> Logga in</router-link>
+          </li>
+          <li v-if="isLoggedIn" class="nav-item">
+            <button v-on:click="logout" class="btn btn-dark">Logga ut</button>
+          </li>
+          <li v-if="!isLoggedIn" class="nav-item">
+            <router-link to="/login" class="nav-link"><i class="fas fa-user-plus"></i> Registrera</router-link>
+          </li>
+          <li v-if="isLoggedIn" class="nav-item">
             <router-link to="/profile" class="nav-link"><i class="far fa-user-circle"></i> Profil</router-link>
             </li>
           <li class="nav-item">
             <router-link to="/checkout" class="nav-link"><i class="fas fa-shopping-bag"></i>  Varukorg </router-link>
+        </li>
+        <li class="nav-item">
+            <router-link to="/about" class="nav-link"><i class="far fa-address-card"></i>  About </router-link>
         </li>
         </ul>
       </div>
@@ -102,6 +132,7 @@
 import SmallCart from '@/components/SmallCart'
 import Vue from 'vue'
 import vClickOutside from 'v-click-outside'
+import firebase from 'firebase'
 
 Vue.use(vClickOutside)
 
@@ -111,6 +142,22 @@ export default {
   components: {
     SmallCart
   },
+  data: function() {
+    return {
+      isLoggedIn: false,
+      currentUser: false
+    }
+  },
+  created() {
+    if(firebase.auth().currentUser) {
+      this.isLoggedIn = true;
+      this.currentUser = firebase.auth().currentUser.email;
+    },
+    logout: function() {
+      firebase.auth().signOut().then(() => {
+        this.$router.go({path: this.$router.path});
+      });
+    }
   methods: {
     closeSmallCart() {
       this.$store.dispatch('closeCart');

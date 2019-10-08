@@ -1,37 +1,3 @@
-    computed: {
-        
-        filteredClothes() {
-            var category = this.selectedCategory;
+The simplest solution is to add a :key attribute to <router-view> in your case <navbar/>
 
-            return this.products
-                .filter(product => {
-                    return product.name.toLowerCase().includes(this.search.toLowerCase())
-                })
-            
-                .filter(function(item) {
-                    return item.category === category;
-                })
-
-        }
-
-
-  }
-
-
-          if(category === "All") {
-            return vm.products;
-        } else {
-            return this.products.filter(function(item) {
-                return item.category === category;
-            });
-        }
-
-        return item.category === category;
-
- if(category === "All") {
-            return this.products;
-        } else {
-            return this.products.filter(function(item) {
-                return item.category === category;
-            });
-        }
+<Navbar :key="$route.fullPath"/>
