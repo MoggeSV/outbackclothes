@@ -152,13 +152,8 @@ export default {
     if(firebase.auth().currentUser) {
       this.isLoggedIn = true;
       this.currentUser = firebase.auth().currentUser.email;
-      }
-    },
-    logout: function() {
-      firebase.auth().signOut().then(() => {
-        this.$router.go({path: this.$router.path});
-      });
-    },
+    }
+  },
   methods: {
     closeSmallCart() {
       this.$store.dispatch('closeCart');
@@ -166,6 +161,11 @@ export default {
     toggleSmallCart() {
       this.$store.dispatch('toggleCart');
     },
+     logout: function() {
+      firebase.auth().signOut().then(() => {
+        this.$router.go({path: this.$router.path});
+      });
+    }
   },
   computed: {
     showingCart() {
