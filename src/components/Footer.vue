@@ -53,7 +53,7 @@
     <!-- End -->
 
     <!-- Only visable on small devices -->
-    <div class="container borderMobile pt-2 d-sm-block d-md-block d-lg-none d-xl-none">
+    <div class="container borderMobile pt-2 d-sm-block d-md-block d-lg-none d-xl-none" style="overflow: hidden">
       <div class="row">
         <div class="col text-center">
           <h1 class="text-uppercase">Betalsätt</h1>
@@ -196,6 +196,7 @@ export default {
 
 .oCTextBottom-M {
   color: black;
+  margin: -25px;
 }
 
 .Mastercard img {

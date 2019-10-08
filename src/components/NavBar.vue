@@ -70,7 +70,7 @@
       </div>
     </nav>
     <!-- Menu for screens smaller than large -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white d-lg-none fixed-top">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white d-lg-none">
       <router-link to="/" class="navbar-brand mx-auto">
           <img src="@/assets/images/oclogo.png" class="logo" />
           <span>OutbackClothes</span>
