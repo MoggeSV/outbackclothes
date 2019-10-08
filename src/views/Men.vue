@@ -33,7 +33,7 @@
             <h5 class="card-title badge badge-pill badge-bg-color">{{product.price}} kr</h5>
             <h6 class="card-title lead">{{product.name}}</h6>
             <h6 class="card-title"><strong>{{product.brand}}</strong></h6>
-            <star-rating :star-size="15" :increment="0.5" :show-rating="false" v-model="product.rating" :rtl="true"></star-rating>
+            <star-rating class="justify-content-center" :star-size="15" :increment="0.5" :show-rating="false" v-model="product.rating" :rtl="true"></star-rating>
           </div>
           <div class="card-footer justify-content-center">
             <input type="number" class="form-control mr-1" value="1" min="0" />
