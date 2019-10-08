@@ -88,6 +88,7 @@ export default {
             name: doc.data().name,
             price: doc.data().price,
             size: doc.data().size,
+            type: doc.data().type,
             rating: doc.data().rating
           };
           this.products.push(data);
