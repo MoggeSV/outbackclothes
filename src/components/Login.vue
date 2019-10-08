@@ -1,6 +1,6 @@
 <template>
 
-<div class="container mt-2" id="loginDropdown">
+<div class="container mt-5" id="loginDropdown">
     <form>
     <div class="form-group">
       <label for="email">E-post</label>
