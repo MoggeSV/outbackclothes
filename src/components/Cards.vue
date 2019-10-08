@@ -4,7 +4,7 @@
       <div class="carousel-inner" role="listbox">
         <div class="carousel-item row no-gutters active">
           <div class="col-md-4 float-left">
-            <img class="img" src="../assets/images/men/men_2.jpg" alt="Men_1" height="200" />
+            <img class="imageAsset" src="../assets/images/men/men_2.jpg" alt="Men_1" height="200" />
             <div class="card-body" id="cardBody">
               <h4>Man</h4>
               <a href="#" class="card-link">Vinterjacka</a>
@@ -12,7 +12,7 @@
             </div>
           </div>
           <div class="col-md-4 float-left">
-            <img src="../assets/images/woman/woman_1.jpg" class="img" alt="Woman_1" height="200" />
+            <img src="../assets/images/woman/woman_1.jpg" class="imageAsset" alt="Woman_1" height="200" />
             <div class="card-body" id="cardBody">
               <h4>Kvinna</h4>
               <a href="#" class="card-link">Vinterjacka</a>
@@ -22,7 +22,7 @@
           <div class="col-md-4 float-left">
             <img
               src="../assets/images/children/children_2.jpg"
-              class="img"
+              class="imageAsset"
               alt="Children_1"
               height="200"
             />
@@ -35,7 +35,7 @@
         </div>
         <div class="carousel-item row no-gutters">
           <div class="col-md-4 float-left">
-            <img src="../assets/images/men/men_6.jpg" class="img" alt="Men_2" height="200" />
+            <img src="../assets/images/men/men_6.jpg" class="imageAsset" alt="Men_2" height="200" />
             <div class="card-body" id="cardBody">
               <h4>Man</h4>
               <a href="#" class="card-link">Vinterskor</a>
@@ -43,7 +43,7 @@
             </div>
           </div>
           <div class="col-md-4 float-left">
-            <img src="../assets/images/woman/woman_4.jpg" class="img" alt="Woman_2" height="200" />
+            <img src="../assets/images/woman/woman_4.jpg" class="imageAsset" alt="Woman_2" height="200" />
             <div class="card-body" id="cardBody">
               <h4>Kvinna</h4>
               <a href="#" class="card-link">Vinterskor</a>
@@ -53,7 +53,7 @@
           <div class="col-md-4 float-left">
             <img
               src="../assets/images/children/children_6.jpg"
-              class="img"
+              class="imageAsset"
               alt="Children_2"
               height="200"
             />
@@ -66,7 +66,7 @@
         </div>
         <div class="carousel-item row no-gutters">
           <div class="col-md-4 float-left">
-            <img src="../assets/images/men/men_8.jpg" class="img" alt="Men_3" height="200" />
+            <img src="../assets/images/men/men_8.jpg" class="imageAsset" alt="Men_3" height="200" />
             <div class="card-body" id="cardBody">
               <h4>Man</h4>
               <a href="#" class="card-link">Mössa</a>
@@ -74,17 +74,17 @@
             </div>
           </div>
           <div class="col-md-4 float-left">
-            <img src="../assets/images/woman/woman_9.jpg" class="img" alt="Woman_3" height="200" />
+            <img src="../assets/images/woman/woman_9.jpg" class="imageAsset" alt="Woman_3" height="200" />
             <div class="card-body" id="cardBody">
               <h4>Kvinna</h4>
               <a href="#" class="card-link">Mössa</a>
               <p>299:-</p>
             </div>
           </div>
-          <div class="col-md-4 float-left">
+          <div class=" col-md-4 float-left">
             <img
               src="../assets/images/children/children_7.jpg"
-              class="img"
+              class="imageAsset"
               alt="Children_3"
               height="200"
             />
@@ -119,4 +119,42 @@ $(document).ready(function() {
 </script>
 
 <style>
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  background-image: none;
+  margin-left: 200px;
+  
+}
+
+.carousel-control-prev-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  background-image: none;
+  margin-right: 200px;
+  
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: #7295AD;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: #7295AD;
+}
+
+.imageAsset {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 30px;  
+  padding: 5px;
+}
 </style>
