@@ -36,8 +36,11 @@
         </div>
         <div class="col d-flex justify-content-end">
           <ul class="navbar-nav custom-right-padding">
-            <li v-if="isLoggedIn" class="nav-item">
-              <button v-on:click="logout" class="btn btn-dark">Logga ut</button>
+            <li v-if="isLoggedIn" class="nav-item" v-on:click="logout">
+              <span class="nav-link">
+                <span>{{ currentUser }} </span>
+                <i class="fas fa-sign-out-alt"></i>
+              </span>
             </li>
             <li v-if="isLoggedIn" class="nav-item">
               <router-link to="/about" class="nav-link">
@@ -67,8 +70,7 @@
       </div>
     </nav>
     <!-- Menu for screens smaller than large -->
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-white d-lg-none">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white d-lg-none fixed-top">
       <router-link to="/" class="navbar-brand mx-auto">
           <img src="@/assets/images/oclogo.png" class="logo" />
           <span>OutbackClothes</span>
@@ -100,8 +102,8 @@
           <li v-if="!isLoggedIn" class="nav-item">
             <router-link to="/login" class="nav-link"><i class="fas fa-sign-in-alt"></i> Logga in</router-link>
           </li>
-          <li v-if="isLoggedIn" class="nav-item">
-            <button v-on:click="logout" class="btn btn-dark">Logga ut</button>
+          <li v-if="isLoggedIn" class="nav-item" v-on:click="logout">
+            <i class="fas fa-sign-out-alt"></i>
           </li>
           <li v-if="!isLoggedIn" class="nav-item">
             <router-link to="/login" class="nav-link"><i class="fas fa-user-plus"></i> Registrera</router-link>
@@ -136,7 +138,7 @@ export default {
   name: "NavBar",
   components: {
     SmallCart,
-    LoginDropdown
+    LoginDropdown,
   },
   data: function() {
     return {
@@ -187,7 +189,6 @@ export default {
  nav {
    position: relative;
  }
-
  .small-cart {
     position: absolute;
     z-index: 1000;
