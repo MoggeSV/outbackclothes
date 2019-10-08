@@ -1,19 +1,14 @@
 <template>
 <div class="container mt-2" id="loginDropdown">
-  <h3>Login</h3>
     <form>
     <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ange email" v-model="email" required>
+      <label for="email">E-post</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Ange e-postadress" v-model="email" required>
       <small id="emailHelp" class="form-text text-muted">Vi kommer inte dela din information till någon</small>
     </div>
     <div class="form-group">
       <label for="password">Lösenord</label>
       <input type="password" class="form-control" id="password" placeholder="Ange lösenord" v-model="password" required>
-    </div>
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="checkme" required>
-      <label class="form-check-label" for="checkme">Jag godkänner GDPR</label>
     </div>
     <button v-on:click="login" type="submit" class="btn btn-primary">Logga in</button>
 </form>
