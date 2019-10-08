@@ -41,7 +41,7 @@
           </div>
           <div class="card-footer justify-content-center">
             <input type="number" class="form-control mr-1" value="1" min="0" />
-            <router-link to="/" class="btn back-color-button btn-sm">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></router-link>
+            <button @click="addItem(product)" class="btn back-color-button btn-sm">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></button>
           </div>
         </div>
       </div>
@@ -55,6 +55,12 @@ import StarRating from 'vue-star-rating'
 
 export default {
   name: "children",
+  methods: {
+    addItem(item) {
+      this.$store.dispatch('addItem', item);
+      this.$store.dispatch('openCart');
+    }
+  },
   data() {
     return {
       products: [],
@@ -83,6 +89,7 @@ export default {
             name: doc.data().name,
             price: doc.data().price,
             size: doc.data().size,
+            amount: doc.data().amount,
             rating: doc.data().rating
           };
           this.products.push(data);
