@@ -148,6 +148,7 @@
             <div class="row">
                 <div class="col-12 col-md-6 order-md-first">
                     <h3 class="p-3">Handla som gäst</h3>
+                    {{ getNewPrice }}
                     <CheckoutForm />
                 </div>
                 <div class="col-md-6">

@@ -38,7 +38,6 @@
             <star-rating class="justify-content-center" :star-size="15" :increment="0.5" :show-rating="false" v-model="product.rating" :rtl="true"></star-rating>
           </div>
           <div class="card-footer justify-content-center">
-            <input type="number" class="form-control mr-1" value="1" min="0" />
             <button @click="addItem(product)" class="btn back-color-button btn-sm">Handla<img class="ml-2 mb-1" src="../assets/images/shopping-bag.svg" alt="" /></button>
           </div>
         </div>
