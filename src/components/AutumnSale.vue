@@ -12,7 +12,6 @@
 </template>
 
 <script>
-
 export default {
     name: 'autumnsale'
 }
@@ -25,7 +24,7 @@ export default {
     display: flex;
     flex-direction: row;
     background-image: url('../assets/images/autumn-sale.jpg');
-    height: 30vh;
+    height: 35vh;
     .btn {
         background: red;
         border: red;
@@ -47,6 +46,5 @@ export default {
             margin-left: 1rem;
         }
     }
-
 }
 </style>

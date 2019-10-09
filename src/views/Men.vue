@@ -42,6 +42,9 @@
       </div>
     </div>
   </div>
+  <back-to-top bottom="50px" right="50px">
+    <button type="button" class="btn btn-info btn-to-top"><i class="fa fa-chevron-up"></i></button>
+  </back-to-top>
 </div>
 </template>
 
@@ -49,6 +52,7 @@
 import db from "@/components/firebaseInit";
 import StarRating from 'vue-star-rating'
 import AutumnSale from '@/components/AutumnSale'
+import BackToTop from 'vue-backtotop'
 
 export default {
   name: "men",
@@ -67,7 +71,8 @@ export default {
   },
     components: {
       StarRating,
-      AutumnSale
+      AutumnSale,
+      BackToTop
 },
   created() {
     db.collection("men")
@@ -301,4 +306,13 @@ export default {
     }
   }
 
+.btn-to-top {
+  width: 60px;
+  height: 60px;
+  padding: 10px 16px;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 22px;
+  background: black;
+}
 </style>
