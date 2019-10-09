@@ -36,14 +36,10 @@
         </div>
         <div class="col d-flex justify-content-end">
           <ul class="navbar-nav custom-right-padding">
-            <li v-if="isLoggedIn" class="nav-item" v-on:click="logout">
-              <span class="nav-link">
-                <i class="fas fa-sign-out-alt"></i>
-              </span>
-            </li>
             <li v-if="isLoggedIn" class="nav-item">
               <router-link to="/about" class="nav-link">
                 <i class="far fa-address-card"></i>
+                {{ currentUser }}
               </router-link>
             </li>
             <li v-if="!isLoggedIn" class="nav-item" @click="toggleLogin">
@@ -55,6 +51,11 @@
               <span class="nav-link" href="#">
                 <i class="fas fa-shopping-bag"></i>
                 <span class="" id="itemsInCart"><span class="badge badge-pill badge-danger">{{ getCartLength }}</span></span>
+              </span>
+            </li>
+            <li v-if="isLoggedIn" class="nav-item" v-on:click="logout">
+              <span class="nav-link">
+                <i class="fas fa-sign-out-alt"></i>
               </span>
             </li>
           </ul>
@@ -174,7 +175,7 @@ export default {
     },
      logout: function() {
       firebase.auth().signOut().then(() => {
-        this.$router.go({path: this.$router.path});
+        this.$router.go({path: "/"});
       });
     }
   },
